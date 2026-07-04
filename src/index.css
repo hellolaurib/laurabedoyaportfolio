@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'IBM Plex Serif', serif;
+  --font-caveat: 'Caveat', cursive;
+}
+
+body {
+  margin: 0;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
