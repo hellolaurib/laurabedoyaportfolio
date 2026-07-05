@@ -3,6 +3,7 @@ import { AnimatePresence } from 'motion/react';
 import Home from './Home';
 import CaseStudyKoronet from './CaseStudyKoronet';
 import CaseStudyMegaMenu from './CaseStudyMegaMenu';
+import CaseStudyMuukTest from './CaseStudyMuukTest';
 
 function App() {
   const location = useLocation();
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/case-studies/koronet" element={<CaseStudyKoronet />} />
         <Route path="/case-studies/imehxs-mega-menu" element={<CaseStudyMegaMenu />} />
+        <Route path="/case-studies/muuktest" element={<CaseStudyMuukTest />} />
       </Routes>
     </AnimatePresence>
   );

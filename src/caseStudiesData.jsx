@@ -43,7 +43,7 @@ export const CASE_STUDIES = [
       'Redesign of the MuukTest website an AI-powered QA automation platform. The goal: a visually competitive presence in the tech sector, clearer navigation, and a more structured experience built to drive leads.',
     image: imgMacbookMockup2,
     imageAlt: 'MuukTest website shown on a MacBook',
-    to: '#',
+    to: '/case-studies/muuktest',
   },
   {
     id: 'reclaimed-wood',
