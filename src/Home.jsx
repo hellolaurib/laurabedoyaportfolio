@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import imgVwoLogo from './assets/figma/vwo-logo-40.png';
 import imgWebflow from './assets/figma/webflow.webp';
 import imgFramer from './assets/figma/framer.png';
@@ -46,6 +47,7 @@ const CASE_STUDIES = [
       'Website redesign for Koronet, a B2B ecosystem for the floral industry. Over 4 months, I led the strategy and design to improve the user experience and brand positioning.',
     image: imgMacbookMockup1,
     imageAlt: 'Koronet website shown on a MacBook',
+    to: '/case-studies/koronet',
   },
   {
     heading: (
@@ -95,7 +97,7 @@ function PillButton({ children, icon, href = '#' }) {
   );
 }
 
-function CaseStudy({ heading, description, image, imageAlt, reverse }) {
+function CaseStudy({ heading, description, image, imageAlt, reverse, to = '#' }) {
   return (
     <section
       className={`flex flex-col items-center gap-8 rounded-[33px] border border-[rgba(20,20,20,0.14)] p-6 sm:p-10 md:gap-12 lg:flex-row lg:p-14 ${
@@ -109,15 +111,15 @@ function CaseStudy({ heading, description, image, imageAlt, reverse }) {
         <p className="text-sm leading-relaxed font-light text-[#6b6b6b] sm:text-base">
           {description}
         </p>
-        <a
-          href="#"
+        <Link
+          to={to}
           className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#141414] to-[rgba(20,20,20,0.9)] py-2.5 pl-5 pr-2.5 text-[11px] font-light text-[#fafafa] shadow-[0px_1px_2px_rgba(0,0,0,0.05)]"
         >
           Open case study
           <span className="flex size-5 items-center justify-center rounded-full bg-[rgba(250,250,250,0.15)]">
             <img src={imgIconArrowUpRight} alt="" className="size-3" />
           </span>
-        </a>
+        </Link>
       </div>
       <div className="w-full lg:w-3/5">
         <img
