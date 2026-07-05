@@ -56,6 +56,6 @@ export const CASE_STUDIES = [
       '28 years of expertise in reclaimed wood and sustainable materials. Clear navigation, stronger visual storytelling, and an experience built to match the weight of their reputation.',
     image: imgMacbookMockup3,
     imageAlt: 'Reclaimed wood company website shown on a MacBook',
-    to: '#',
+    to: '/case-studies/reclaimed-wood',
   },
 ];

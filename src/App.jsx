@@ -4,6 +4,7 @@ import Home from './Home';
 import CaseStudyKoronet from './CaseStudyKoronet';
 import CaseStudyMegaMenu from './CaseStudyMegaMenu';
 import CaseStudyMuukTest from './CaseStudyMuukTest';
+import CaseStudyUrbanEvolutions from './CaseStudyUrbanEvolutions';
 
 function App() {
   const location = useLocation();
@@ -14,6 +15,7 @@ function App() {
         <Route path="/case-studies/koronet" element={<CaseStudyKoronet />} />
         <Route path="/case-studies/imehxs-mega-menu" element={<CaseStudyMegaMenu />} />
         <Route path="/case-studies/muuktest" element={<CaseStudyMuukTest />} />
+        <Route path="/case-studies/reclaimed-wood" element={<CaseStudyUrbanEvolutions />} />
       </Routes>
     </AnimatePresence>
   );
