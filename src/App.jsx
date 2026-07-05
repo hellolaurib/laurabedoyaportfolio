@@ -1,13 +1,17 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'motion/react';
 import Home from './Home';
 import CaseStudyKoronet from './CaseStudyKoronet';
 
 function App() {
+  const location = useLocation();
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/case-studies/koronet" element={<CaseStudyKoronet />} />
-    </Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/case-studies/koronet" element={<CaseStudyKoronet />} />
+      </Routes>
+    </AnimatePresence>
   );
 }
 

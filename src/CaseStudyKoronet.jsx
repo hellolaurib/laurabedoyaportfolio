@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
+import { pageTransition, pageTransitionTiming } from './motionConfig';
+import Reveal from './Reveal';
 import imgGeminiAvatar from './assets/figma/gemini-avatar.png';
 import imgEllipse33 from './assets/figma/ellipse-33.png';
 import imgMockupUserResearch from './assets/figma/koronet-mockup-user-research.png';
@@ -148,19 +151,25 @@ function Divider() {
 
 function Section({ id, eyebrow, heading, children }) {
   return (
-    <section id={id} className="flex scroll-mt-24 flex-col gap-6 sm:gap-[27px]">
+    <Reveal as="section" id={id} className="flex scroll-mt-24 flex-col gap-6 sm:gap-[27px]">
       <div className="flex flex-col items-start gap-5 sm:gap-[25px]">
         <Eyebrow>{eyebrow}</Eyebrow>
         {heading && <SectionHeading>{heading}</SectionHeading>}
         {children}
       </div>
-    </section>
+    </Reveal>
   );
 }
 
 export default function CaseStudyKoronet() {
   return (
-    <div className="relative overflow-hidden bg-white text-[#141414]">
+    <motion.div
+      className="relative overflow-hidden bg-white text-[#141414]"
+      initial={pageTransition.initial}
+      animate={pageTransition.animate}
+      exit={pageTransition.exit}
+      transition={pageTransitionTiming}
+    >
       <div
         className="pointer-events-none absolute -left-24 -top-52 size-[130px]"
         aria-hidden
@@ -186,7 +195,7 @@ export default function CaseStudyKoronet() {
               <a
                 key={link}
                 href="#"
-                className="cursor-pointer rounded-full px-4 py-2 transition-colors hover:bg-[rgba(20,20,20,0.06)]"
+                className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-300 ease-out hover:bg-[rgba(20,20,20,0.06)]"
               >
                 {link}
               </a>
@@ -199,7 +208,7 @@ export default function CaseStudyKoronet() {
           <aside className="flex flex-col gap-8 lg:sticky lg:top-12 lg:w-[124px] lg:shrink-0">
             <Link
               to="/"
-              className="text-base text-[#858585] transition-colors hover:text-[#141414]"
+              className="text-base text-[#858585] transition-colors duration-300 ease-out hover:text-[#141414]"
             >
               {'<- Back'}
             </Link>
@@ -208,7 +217,7 @@ export default function CaseStudyKoronet() {
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  className="text-left transition-colors hover:text-[#141414]"
+                  className="text-left transition-colors duration-300 ease-out hover:text-[#141414]"
                 >
                   {item.label}
                 </a>
@@ -219,7 +228,7 @@ export default function CaseStudyKoronet() {
           {/* Content */}
           <div className="flex flex-col gap-16 sm:gap-24 lg:min-w-0 lg:flex-1">
             {/* Title + meta */}
-            <div className="flex flex-col gap-10">
+            <Reveal as="div" className="flex flex-col gap-10">
               <h1 className="max-w-3xl font-sans text-3xl leading-tight tracking-[-0.48px] text-[#141414] sm:text-[43px] sm:leading-[47px]">
                 From complexity to conversion: Redesigning koronet&apos;s website
               </h1>
@@ -241,7 +250,7 @@ export default function CaseStudyKoronet() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
             {/* Overview */}
             <Section id="overview" eyebrow="OVERVIEW" heading="In the floral industry, complexity doesn't sell. Clarity does.">
@@ -254,7 +263,7 @@ export default function CaseStudyKoronet() {
               </p>
               <a
                 href="#"
-                className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#141414] to-[rgba(20,20,20,0.9)] py-2.5 pl-5 pr-2.5 text-[11px] font-light text-[#fafafa] shadow-[0px_1px_2px_rgba(0,0,0,0.05)]"
+                className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#141414] to-[rgba(20,20,20,0.9)] py-2.5 pl-5 pr-2.5 text-[11px] font-light text-[#fafafa] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] transition-transform duration-300 ease-out hover:scale-[1.03]"
               >
                 View on live
                 <span className="flex size-5 items-center justify-center rounded-full bg-[rgba(250,250,250,0.15)]">
@@ -276,7 +285,7 @@ export default function CaseStudyKoronet() {
               <div className="aspect-[889/457] w-full rounded-[16px] border border-[rgba(20,20,20,0.14)]" />
             </Section>
 
-            <div id="impact" className="scroll-mt-24">
+            <Reveal as="div" id="impact" className="scroll-mt-24">
               <Eyebrow>IMPACT</Eyebrow>
               <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-3">
                 {IMPACT_STATS.map((stat) => (
@@ -286,7 +295,7 @@ export default function CaseStudyKoronet() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
             <Divider />
 
@@ -538,20 +547,20 @@ export default function CaseStudyKoronet() {
             <Divider />
 
             {/* More case studies */}
-            <div className="flex flex-col gap-6">
+            <Reveal as="div" className="flex flex-col gap-6">
               <Eyebrow>MORE CASES STUDIES</Eyebrow>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {MORE_CASE_STUDIES.map((study) => (
                   <a
                     key={study.description}
                     href="#"
-                    className="flex flex-col overflow-hidden rounded-2xl border border-[#e0e0e0] bg-white transition-shadow hover:shadow-lg"
+                    className="group flex flex-col overflow-hidden rounded-2xl border border-[#e0e0e0] bg-white transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg"
                   >
                     <div className="aspect-[556/347.5] w-full overflow-hidden bg-[#f0f0f0]">
                       <img
                         src={study.image}
                         alt=""
-                        className="size-full object-cover"
+                        className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                       />
                     </div>
                     <div className="flex flex-col gap-2 p-6">
@@ -565,20 +574,20 @@ export default function CaseStudyKoronet() {
                   </a>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
             {/* Footer */}
             <footer className="flex flex-col items-center gap-3 border-t border-[rgba(20,20,20,0.1)] py-8 text-center text-[10.7px] font-light text-[#6b6b6b] sm:flex-row sm:justify-between sm:text-left">
               <span className="tracking-[-0.54px] text-[#696969]">
                 Built with love and Claude Code · 2026
               </span>
-              <Link to="/" className="transition-colors hover:text-[#141414]">
+              <Link to="/" className="transition-colors duration-300 ease-out hover:text-[#141414]">
                 Back to deck →
               </Link>
             </footer>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
+import { pageTransition, pageTransitionTiming } from './motionConfig';
+import Reveal from './Reveal';
 import imgVwoLogo from './assets/figma/vwo-logo-40.png';
 import imgWebflow from './assets/figma/webflow.webp';
 import imgFramer from './assets/figma/framer.png';
@@ -89,7 +92,7 @@ function PillButton({ children, icon, href = '#' }) {
   return (
     <a
       href={href}
-      className="inline-flex items-center gap-2 rounded-full border border-[rgba(20,20,20,0.2)] bg-white px-5 py-2.5 text-xs font-light text-[#141414] shadow-[0px_1px_1px_rgba(0,0,0,0.05)] transition-colors hover:bg-[#141414] hover:text-white sm:text-sm"
+      className="inline-flex items-center gap-2 rounded-full border border-[rgba(20,20,20,0.2)] bg-white px-5 py-2.5 text-xs font-light text-[#141414] shadow-[0px_1px_1px_rgba(0,0,0,0.05)] transition-colors duration-300 ease-out hover:bg-[#141414] hover:text-white sm:text-sm"
     >
       {children}
       {icon && <img src={icon} alt="" className="size-3.5" />}
@@ -97,10 +100,12 @@ function PillButton({ children, icon, href = '#' }) {
   );
 }
 
-function CaseStudy({ heading, description, image, imageAlt, reverse, to = '#' }) {
+function CaseStudy({ heading, description, image, imageAlt, reverse, to = '#', delay = 0 }) {
   return (
-    <section
-      className={`flex flex-col items-center gap-8 rounded-[33px] border border-[rgba(20,20,20,0.14)] p-6 sm:p-10 md:gap-12 lg:flex-row lg:p-14 ${
+    <Reveal
+      as="section"
+      delay={delay}
+      className={`group flex flex-col items-center gap-8 rounded-[33px] border border-[rgba(20,20,20,0.14)] p-6 sm:p-10 md:gap-12 lg:flex-row lg:p-14 ${
         reverse ? 'lg:flex-row-reverse' : ''
       }`}
     >
@@ -113,7 +118,7 @@ function CaseStudy({ heading, description, image, imageAlt, reverse, to = '#' })
         </p>
         <Link
           to={to}
-          className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#141414] to-[rgba(20,20,20,0.9)] py-2.5 pl-5 pr-2.5 text-[11px] font-light text-[#fafafa] shadow-[0px_1px_2px_rgba(0,0,0,0.05)]"
+          className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#141414] to-[rgba(20,20,20,0.9)] py-2.5 pl-5 pr-2.5 text-[11px] font-light text-[#fafafa] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] transition-transform duration-300 ease-out hover:scale-[1.03]"
         >
           Open case study
           <span className="flex size-5 items-center justify-center rounded-full bg-[rgba(250,250,250,0.15)]">
@@ -121,20 +126,26 @@ function CaseStudy({ heading, description, image, imageAlt, reverse, to = '#' })
           </span>
         </Link>
       </div>
-      <div className="w-full lg:w-3/5">
+      <div className="w-full overflow-hidden rounded-[16px] lg:w-3/5">
         <img
           src={image}
           alt={imageAlt}
-          className="w-full rounded-[16px] object-cover shadow-[0px_20px_40px_-20px_rgba(0,0,0,0.25)]"
+          className="w-full scale-100 rounded-[16px] object-cover shadow-[0px_20px_40px_-20px_rgba(0,0,0,0.25)] transition-transform duration-500 ease-out group-hover:scale-105"
         />
       </div>
-    </section>
+    </Reveal>
   );
 }
 
 export default function Home() {
   return (
-    <div className="relative overflow-hidden bg-white text-[#141414]">
+    <motion.div
+      className="relative overflow-hidden bg-white text-[#141414]"
+      initial={pageTransition.initial}
+      animate={pageTransition.animate}
+      exit={pageTransition.exit}
+      transition={pageTransitionTiming}
+    >
       {/* decorative gradient blobs */}
       <div
         className="pointer-events-none absolute -left-24 top-0 h-[600px] w-[900px] opacity-40"
@@ -172,7 +183,7 @@ export default function Home() {
               <a
                 key={link}
                 href="#"
-                className="cursor-pointer rounded-full px-4 py-2 transition-colors hover:bg-[rgba(20,20,20,0.06)]"
+                className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-300 ease-out hover:bg-[rgba(20,20,20,0.06)]"
               >
                 {link}
               </a>
@@ -181,7 +192,7 @@ export default function Home() {
         </header>
 
         {/* Hero */}
-        <section className="flex flex-col gap-8">
+        <Reveal as="section" className="flex flex-col gap-8">
           <p className="text-sm font-light tracking-[5px] text-[#6b6b6b]">
             HELLO, I&apos;M LAURA
           </p>
@@ -257,10 +268,10 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Logo marquee */}
-        <section className="flex flex-col gap-6">
+        <Reveal as="section" className="flex flex-col gap-6">
           <p className="font-caveat text-lg text-[#141414]">My stack</p>
           <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex w-max animate-marquee items-center gap-16">
@@ -269,22 +280,22 @@ export default function Home() {
                   key={`${logo.alt}-${i}`}
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-10 w-auto shrink-0 object-contain opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0"
+                  className="h-10 w-auto shrink-0 object-contain opacity-70 grayscale transition-all duration-300 ease-out hover:opacity-100 hover:grayscale-0"
                 />
               ))}
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Case studies */}
         <section className="flex flex-col gap-10">
           {CASE_STUDIES.map((study, i) => (
-            <CaseStudy key={study.imageAlt} {...study} reverse={i % 2 === 1} />
+            <CaseStudy key={study.imageAlt} {...study} reverse={i % 2 === 1} delay={i * 0.05} />
           ))}
         </section>
 
         {/* Select interfaces */}
-        <section className="flex flex-col gap-10">
+        <Reveal as="section" className="flex flex-col gap-10">
           <h2 className="font-serif text-3xl italic tracking-[-2.2px] text-black sm:text-[44px]">
             Select interfaces
           </h2>
@@ -292,14 +303,14 @@ export default function Home() {
             {Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
-                className="aspect-[287/309] rounded-[24px] border border-[#141414]"
+                className="aspect-[287/309] rounded-[24px] border border-[#141414] transition-colors duration-300 ease-out hover:border-[rgba(20,20,20,0.4)]"
               />
             ))}
           </div>
-        </section>
+        </Reveal>
 
         {/* Contact */}
-        <section className="flex flex-col items-center gap-8 py-12 text-center">
+        <Reveal as="section" className="flex flex-col items-center gap-8 py-12 text-center">
           <p className="flex flex-wrap items-end justify-center gap-3 font-serif text-2xl italic tracking-[-2.2px] text-[#6e6e6e] sm:text-3xl">
             <span className="text-4xl not-italic sm:text-[44px]">💌</span>
             <span>
@@ -309,7 +320,7 @@ export default function Home() {
               </span>
             </span>
           </p>
-        </section>
+        </Reveal>
 
         {/* Footer */}
         <footer className="flex flex-col items-center gap-3 border-t border-[rgba(20,20,20,0.1)] py-8 text-center text-[10.7px] font-light text-[#6b6b6b] sm:flex-row sm:justify-between sm:text-left">
@@ -319,6 +330,6 @@ export default function Home() {
           <span>Built with love and Claude Code · 2026</span>
         </footer>
       </div>
-    </div>
+    </motion.div>
   );
 }
