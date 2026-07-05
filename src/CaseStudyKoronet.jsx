@@ -164,17 +164,16 @@ function Section({ id, eyebrow, heading, children }) {
 export default function CaseStudyKoronet() {
   return (
     <motion.div
-      className="relative overflow-hidden bg-white text-[#141414]"
+      className="relative bg-white text-[#141414]"
       initial={pageTransition.initial}
       animate={pageTransition.animate}
       exit={pageTransition.exit}
       transition={pageTransitionTiming}
     >
-      <div
-        className="pointer-events-none absolute -left-24 -top-52 size-[130px]"
-        aria-hidden
-      >
-        <img alt="" className="size-full" src={imgEllipse33} />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <div className="absolute -left-24 -top-52 size-[130px]">
+          <img alt="" className="size-full" src={imgEllipse33} />
+        </div>
       </div>
 
       <div className="relative mx-auto flex max-w-[1320px] flex-col gap-16 px-6 py-8 sm:px-10 sm:py-12 lg:px-16">
