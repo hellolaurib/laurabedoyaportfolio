@@ -306,7 +306,7 @@ export default function Home() {
         </Reveal>
 
         {/* Logo marquee */}
-        <Reveal as="section" className="flex flex-col gap-6">
+        <Reveal as="section" className="-mt-12 flex flex-col gap-6 md:-mt-20">
           <p className="font-caveat text-lg text-[#141414]">My stack</p>
           <div className="relative overflow-hidden pb-12 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex w-max animate-marquee items-center">
