@@ -17,6 +17,7 @@ import imgIconArrowRight from './assets/figma/icon-arrow-right.svg';
 import imgIconMessage from './assets/figma/icon-message.svg';
 import imgIconSend from './assets/figma/icon-send.svg';
 import imgIconArrowUpRight from './assets/figma/icon-arrow-up-right.svg';
+import videoHome from './assets/figma/gif-home.mp4';
 
 const NAV_LINKS = ['About', 'Resume', 'LinkedIn', 'Dribble'];
 const RESUME_URL = '/Laura_Bedoya_CV.pdf';
@@ -202,7 +203,8 @@ export default function Home() {
         </header>
 
         {/* Hero */}
-        <Reveal as="section" className="flex flex-col gap-8">
+        <Reveal as="section" className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-12">
+        <div className="flex flex-col gap-8 lg:w-3/5">
           <p className="text-sm font-light tracking-[5px] text-[#6b6b6b]">
             HELLO, I&apos;M LAURA
           </p>
@@ -289,7 +291,18 @@ export default function Home() {
               </motion.div>
             </div>
           )}
+        </div>
 
+          <div className="w-full lg:w-2/5">
+            <video
+              src={videoHome}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-[24px] object-cover shadow-[0px_10px_30px_-20px_rgba(0,0,0,0.15)]"
+            />
+          </div>
         </Reveal>
 
         {/* Logo marquee */}
