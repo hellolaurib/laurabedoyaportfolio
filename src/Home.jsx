@@ -80,7 +80,7 @@ function CaseStudy({ heading, description, image, imageAlt, tags, to = '#', dela
             ))}
           </div>
         )}
-        <h3 className="font-sans text-2xl leading-tight tracking-[-0.48px] text-[#141414] sm:text-[29.6px] [&_em]:font-serif [&_em]:font-light [&_em]:not-italic [&_em]:italic">
+        <h3 className="font-sans text-2xl leading-tight tracking-[-0.48px] text-[#141414] sm:text-[29.6px] [&_em]:font-serif [&_em]:font-light [&_em]:italic">
           {heading}
         </h3>
         <p className="text-sm leading-relaxed font-light text-[#6b6b6b] sm:text-base">
@@ -208,7 +208,7 @@ export default function Home() {
           <p className="text-sm font-light tracking-[5px] text-[#6b6b6b]">
             HELLO, I&apos;M LAURA
           </p>
-          <h1 className="max-w-3xl font-sans text-4xl leading-tight tracking-[-2.2px] text-black sm:text-5xl lg:text-[56px] [&_em]:font-serif [&_em]:font-light [&_em]:not-italic [&_em]:italic">
+          <h1 className="max-w-3xl font-sans text-4xl leading-tight tracking-[-2.2px] text-black sm:text-5xl lg:text-[56px] [&_em]:font-serif [&_em]:font-light [&_em]:italic">
             I design products that <em>feel</em> simple, even when
             they&apos;re not.
           </h1>

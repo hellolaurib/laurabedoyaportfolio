@@ -159,7 +159,7 @@ export default function CaseStudyShell({ caseStudyId, title, meta, sideNav, chil
                       />
                     </div>
                     <div className="flex flex-col gap-2 p-6">
-                      <p className="font-sans text-lg tracking-[-0.48px] text-[#141414] [&_em]:font-serif [&_em]:font-light [&_em]:not-italic [&_em]:italic">
+                      <p className="font-sans text-lg tracking-[-0.48px] text-[#141414] [&_em]:font-serif [&_em]:font-light [&_em]:italic">
                         {study.heading}
                       </p>
                       <p className="text-xs font-light text-[#6b6b6b]">
