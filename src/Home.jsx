@@ -47,16 +47,26 @@ function PillButton({ children, icon, href = '#' }) {
   );
 }
 
-function CaseStudy({ heading, description, image, imageAlt, reverse, to = '#', delay = 0 }) {
+function CaseStudy({ heading, description, image, imageAlt, tags, to = '#', delay = 0 }) {
   return (
     <Reveal
       as="section"
       delay={delay}
-      className={`group flex flex-col items-center gap-8 rounded-[33px] border border-[rgba(20,20,20,0.14)] bg-white p-6 shadow-[0px_30px_60px_-30px_rgba(0,0,0,0.3)] sm:p-10 md:gap-12 lg:flex-row lg:p-14 ${
-        reverse ? 'lg:flex-row-reverse' : ''
-      }`}
+      className="group flex flex-col items-center gap-8 rounded-[33px] border border-[rgba(20,20,20,0.14)] bg-white p-6 shadow-[0px_10px_30px_-20px_rgba(0,0,0,0.15)] sm:p-10 md:gap-12 lg:flex-row lg:p-14"
     >
       <div className="flex w-full flex-col items-start gap-5 lg:w-2/5">
+        {tags && tags.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-[rgba(20,20,20,0.14)] px-3 py-1 text-[11px] font-light tracking-[0.02em] text-[#6b6b6b]"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
         <h3 className="font-sans text-2xl leading-tight tracking-[-0.48px] text-[#141414] sm:text-[29.6px] [&_em]:font-serif [&_em]:font-light [&_em]:not-italic [&_em]:italic">
           {heading}
         </h3>
@@ -77,7 +87,7 @@ function CaseStudy({ heading, description, image, imageAlt, reverse, to = '#', d
         <img
           src={image}
           alt={imageAlt}
-          className="w-full scale-100 rounded-[16px] object-cover shadow-[0px_20px_40px_-20px_rgba(0,0,0,0.25)] transition-transform duration-500 ease-out group-hover:scale-105"
+          className="w-full scale-100 rounded-[16px] object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
       </div>
     </Reveal>
@@ -244,7 +254,7 @@ export default function Home() {
               className="sticky"
               style={{ top: `${96 + i * 24}px`, zIndex: i + 1 }}
             >
-              <CaseStudy {...study} reverse={i % 2 === 1} delay={i * 0.05} />
+              <CaseStudy {...study} delay={i * 0.05} />
             </div>
           ))}
         </section>

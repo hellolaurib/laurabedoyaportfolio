@@ -17,6 +17,7 @@ export const CASE_STUDIES = [
     image: imgMacbookMockup1,
     imageAlt: 'Koronet website shown on a MacBook',
     to: '/case-studies/koronet',
+    tags: ['UX Strategy', 'B2B SaaS'],
   },
   {
     id: 'imehxs-mega-menu',
@@ -30,6 +31,7 @@ export const CASE_STUDIES = [
     image: imgMacbookMockup4,
     imageAlt: 'IMEHXS mega menu shown on a MacBook',
     to: '/case-studies/imehxs-mega-menu',
+    tags: ['Navigation Design', 'AI-Assisted UX'],
   },
   {
     id: 'muuktest',
@@ -44,6 +46,7 @@ export const CASE_STUDIES = [
     image: imgMacbookMockup2,
     imageAlt: 'MuukTest website shown on a MacBook',
     to: '/case-studies/muuktest',
+    tags: ['Visual Identity', 'Conversion Design'],
   },
   {
     id: 'reclaimed-wood',
@@ -57,5 +60,6 @@ export const CASE_STUDIES = [
     image: imgMacbookMockup3,
     imageAlt: 'Reclaimed wood company website shown on a MacBook',
     to: '/case-studies/reclaimed-wood',
+    tags: ['Information Architecture', 'Content Strategy'],
   },
 ];
