@@ -232,15 +232,19 @@ export default function Home() {
         {/* Logo marquee */}
         <Reveal as="section" className="flex flex-col gap-6">
           <p className="font-caveat text-lg text-[#141414]">My stack</p>
-          <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div className="flex w-max animate-marquee items-center gap-16">
+          <div className="relative overflow-x-hidden py-1 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex w-max animate-marquee items-center">
               {[...LOGOS, ...LOGOS].map((logo, i) => (
-                <img
-                  key={`${logo.alt}-${i}`}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-10 w-auto shrink-0 object-contain opacity-70 grayscale transition-all duration-300 ease-out hover:opacity-100 hover:grayscale-0"
-                />
+                <div key={`${logo.alt}-${i}`} className="group/logo relative mr-16 shrink-0">
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-10 w-auto object-contain opacity-70 grayscale transition-all duration-300 ease-out group-hover/logo:opacity-100 group-hover/logo:grayscale-0"
+                  />
+                  <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[#141414] px-2 py-1 text-[11px] font-light text-white opacity-0 transition-opacity duration-200 group-hover/logo:opacity-100">
+                    {logo.alt}
+                  </span>
+                </div>
               ))}
             </div>
           </div>
