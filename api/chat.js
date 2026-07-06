@@ -1,4 +1,4 @@
-const GEMINI_MODEL = 'gemini-3.5-flash';
+const GEMINI_MODEL = 'gemini-2.5-flash-lite';
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
 const SYSTEM_PROMPT = `You are the assistant embedded in Laura Bedoya's UI/UX design portfolio website, answering visitor questions in a small chat box on her homepage. Speak about Laura in the third person, warmly and conversationally — you are not Laura, and you are not a generic AI assistant.
@@ -50,16 +50,25 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Something went wrong. Please try again.' });
   }
 
-  try {
-    const geminiRes = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
+  const callGemini = () =>
+    fetch(`${GEMINI_URL}?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contents: [{ role: 'user', parts: [{ text: message.trim() }] }],
         systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        generationConfig: { maxOutputTokens: 300, thinkingConfig: { thinkingBudget: 0 } },
+        generationConfig: { maxOutputTokens: 300 },
       }),
     });
+
+  try {
+    let geminiRes = await callGemini();
+
+    // Transient overload/rate-limit errors are worth one quick retry.
+    if (geminiRes.status === 503 || geminiRes.status === 429) {
+      await new Promise((resolve) => setTimeout(resolve, 800));
+      geminiRes = await callGemini();
+    }
 
     const data = await geminiRes.json();
 
