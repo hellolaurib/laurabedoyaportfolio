@@ -21,6 +21,7 @@ import videoHome from './assets/figma/gif-home.mp4';
 
 const NAV_LINKS = ['About', 'Resume', 'LinkedIn', 'Dribble'];
 const RESUME_URL = '/Laura_Bedoya_CV.pdf';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/laurablondono/';
 
 const LOGOS = [
   { src: imgMiro, alt: 'Miro' },
@@ -187,12 +188,15 @@ export default function Home() {
           <nav className="flex flex-wrap items-center gap-1 rounded-full border border-[rgba(224,224,224,0.6)] bg-[rgba(255,255,255,0.85)] px-2 py-2 text-sm font-light text-[rgba(20,20,20,0.8)] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] backdrop-blur-[6px]">
             {NAV_LINKS.map((link) => {
               const isResume = link === 'Resume';
+              const isLinkedIn = link === 'LinkedIn';
+              const href = isResume ? RESUME_URL : isLinkedIn ? LINKEDIN_URL : '#';
+              const external = isResume || isLinkedIn;
               return (
                 <a
                   key={link}
-                  href={isResume ? RESUME_URL : '#'}
-                  target={isResume ? '_blank' : undefined}
-                  rel={isResume ? 'noopener noreferrer' : undefined}
+                  href={href}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener noreferrer' : undefined}
                   className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-300 ease-out hover:bg-[rgba(20,20,20,0.06)]"
                 >
                   {link}
