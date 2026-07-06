@@ -3,11 +3,11 @@ import { motion } from 'motion/react';
 import { pageTransition, pageTransitionTiming } from './motionConfig';
 import Reveal from './Reveal';
 import { CASE_STUDIES } from './caseStudiesData';
-import imgVwoLogo from './assets/figma/vwo-logo-40.png';
-import imgWebflow from './assets/figma/webflow.webp';
+import imgClaude from './assets/figma/vwo-logo-40.png';
+import imgMiro from './assets/figma/webflow.webp';
 import imgFramer from './assets/figma/framer.png';
 import imgFigmaIcon from './assets/figma/figma-icon.png';
-import imgClientLogo from './assets/figma/unnamed1.jpg';
+import imgGoogleAnalytics from './assets/figma/unnamed1.jpg';
 import imgClickUp from './assets/figma/clickup-emblem.png';
 import imgLovable from './assets/figma/lovable-logo.png';
 import imgGeminiAvatar from './assets/figma/gemini-avatar.png';
@@ -26,13 +26,13 @@ import imgMailLine from './assets/figma/vector-mail-3.svg';
 const NAV_LINKS = ['About', 'Resume', 'LinkedIn', 'Dribble'];
 
 const LOGOS = [
-  { src: imgWebflow, alt: 'Webflow' },
+  { src: imgMiro, alt: 'Miro' },
   { src: imgFramer, alt: 'Framer' },
   { src: imgFigmaIcon, alt: 'Figma' },
-  { src: imgVwoLogo, alt: 'VWO' },
+  { src: imgClaude, alt: 'Claude' },
   { src: imgClickUp, alt: 'ClickUp' },
   { src: imgLovable, alt: 'Lovable' },
-  { src: imgClientLogo, alt: 'Client logo' },
+  { src: imgGoogleAnalytics, alt: 'Google Analytics' },
 ];
 
 function PillButton({ children, icon, href = '#' }) {
