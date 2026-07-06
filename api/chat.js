@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         contents: [{ role: 'user', parts: [{ text: message.trim() }] }],
         systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        generationConfig: { maxOutputTokens: 300 },
+        generationConfig: { maxOutputTokens: 300, thinkingConfig: { thinkingBudget: 0 } },
       }),
     });
 
