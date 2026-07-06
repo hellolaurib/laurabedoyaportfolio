@@ -297,7 +297,12 @@ export default function Home() {
           )}
         </div>
 
-          <div className="w-full overflow-hidden rounded-[24px] lg:w-2/5">
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full overflow-hidden rounded-[24px] lg:w-2/5"
+          >
             <video
               src={videoHome}
               autoPlay
@@ -306,7 +311,7 @@ export default function Home() {
               playsInline
               className="block w-full"
             />
-          </div>
+          </a>
         </Reveal>
 
         {/* Logo marquee */}
