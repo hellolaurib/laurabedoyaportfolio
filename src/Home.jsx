@@ -291,7 +291,7 @@ export default function Home() {
                 <span className="text-sm font-light">Mail me</span>
               </div>
               <p className="mt-1 text-[10.3px] font-light text-[rgba(250,250,250,0.6)]">
-                laura.bedoya@gmail.com
+                laura.bedoyalon@gmail.com
               </p>
             </div>
           </div>
