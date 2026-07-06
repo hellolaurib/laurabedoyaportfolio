@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { pageTransition, pageTransitionTiming } from './motionConfig';
@@ -111,6 +111,25 @@ function CaseStudy({ heading, description, image, imageAlt, tags, to = '#', dela
 export default function Home() {
   const [question, setQuestion] = useState('');
   const [chat, setChat] = useState({ status: 'idle', question: '', reply: '', error: '' });
+  const [typedReply, setTypedReply] = useState('');
+
+  useEffect(() => {
+    if (chat.status !== 'done' || !chat.reply) {
+      setTypedReply('');
+      return;
+    }
+
+    setTypedReply('');
+    let i = 0;
+    const chunk = 2;
+    const id = setInterval(() => {
+      i += chunk;
+      setTypedReply(chat.reply.slice(0, i));
+      if (i >= chat.reply.length) clearInterval(id);
+    }, 20);
+
+    return () => clearInterval(id);
+  }, [chat.status, chat.reply]);
 
   async function askLaura(text) {
     const trimmed = text.trim();
@@ -290,7 +309,7 @@ export default function Home() {
                   {chat.status === 'error' && (
                     <p className="text-[#e38484]">{chat.error}</p>
                   )}
-                  {chat.status === 'done' && <p>{chat.reply}</p>}
+                  {chat.status === 'done' && <p>{typedReply}</p>}
                 </div>
               </motion.div>
             </div>
