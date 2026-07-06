@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { pageTransition, pageTransitionTiming } from './motionConfig';
@@ -95,6 +96,31 @@ function CaseStudy({ heading, description, image, imageAlt, tags, to = '#', dela
 }
 
 export default function Home() {
+  const [question, setQuestion] = useState('');
+  const [chat, setChat] = useState({ status: 'idle', reply: '', error: '' });
+
+  async function handleAskSubmit(e) {
+    e.preventDefault();
+    const trimmed = question.trim();
+    if (!trimmed || chat.status === 'loading') return;
+
+    setChat({ status: 'loading', reply: '', error: '' });
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: trimmed }),
+      });
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !data) {
+        throw new Error(data?.error || "Couldn't reach the assistant. Please try again.");
+      }
+      setChat({ status: 'done', reply: data.reply, error: '' });
+    } catch (err) {
+      setChat({ status: 'error', reply: '', error: err.message || 'Something went wrong.' });
+    }
+  }
+
   return (
     <motion.div
       className="relative bg-white text-[#141414]"
@@ -174,25 +200,47 @@ export default function Home() {
             <PillButton icon={imgIconMessage}>linkedin</PillButton>
           </div>
 
-          <form className="flex w-full max-w-xl items-center gap-3 rounded-full border border-[#e0e0e0] bg-[rgba(255,255,255,0.85)] py-3 pl-5 pr-3 shadow-[0px_1px_2px_rgba(0,0,0,0.04),0px_8px_24px_-8px_rgba(0,0,0,0.08)] backdrop-blur-[6px]">
+          <form
+            onSubmit={handleAskSubmit}
+            className="flex w-full max-w-xl items-center gap-3 rounded-full border border-[#e0e0e0] bg-[rgba(255,255,255,0.85)] py-3 pl-5 pr-3 shadow-[0px_1px_2px_rgba(0,0,0,0.04),0px_8px_24px_-8px_rgba(0,0,0,0.08)] backdrop-blur-[6px]"
+          >
             <span className="text-lg font-light text-[#6b6b6b]">›_</span>
             <input
               type="text"
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)}
               placeholder="Have questions? Ask Laura..."
               className="flex-1 border-none bg-transparent text-sm font-light text-[#6b6b6b] outline-none placeholder:text-[rgba(107,107,107,0.6)]"
             />
             <button
               type="submit"
               aria-label="Send"
-              className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#e38484]"
+              disabled={chat.status === 'loading'}
+              className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#e38484] transition-opacity duration-300 ease-out disabled:opacity-50"
             >
               <img
                 src={imgIconSend}
                 alt=""
-                className="size-4 -rotate-90"
+                className={`size-4 -rotate-90 ${chat.status === 'loading' ? 'animate-pulse' : ''}`}
               />
             </button>
           </form>
+
+          {chat.status !== 'idle' && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="w-full max-w-xl rounded-2xl border border-[#e0e0e0] bg-[rgba(255,255,255,0.85)] px-5 py-4 text-sm font-light text-[#141414] backdrop-blur-[6px]"
+            >
+              {chat.status === 'loading' && (
+                <p className="text-[#6b6b6b]">Thinking…</p>
+              )}
+              {chat.status === 'error' && (
+                <p className="text-[#e38484]">{chat.error}</p>
+              )}
+              {chat.status === 'done' && <p>{chat.reply}</p>}
+            </motion.div>
+          )}
 
           {/* floating contact badges */}
           <div className="flex flex-wrap gap-4 pt-4">
