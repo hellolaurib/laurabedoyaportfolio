@@ -232,7 +232,7 @@ export default function Home() {
         {/* Logo marquee */}
         <Reveal as="section" className="flex flex-col gap-6">
           <p className="font-caveat text-lg text-[#141414]">My stack</p>
-          <div className="relative overflow-x-hidden py-1 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="relative overflow-hidden pb-12 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex w-max animate-marquee items-center">
               {[...LOGOS, ...LOGOS].map((logo, i) => (
                 <div key={`${logo.alt}-${i}`} className="group/logo relative mr-16 shrink-0">
