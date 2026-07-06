@@ -121,7 +121,9 @@ export default function CaseStudyUrbanEvolutions() {
           industry reputation demands.
         </p>
         <a
-          href="#"
+          href="https://urbanevolutions.com/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#141414] to-[rgba(20,20,20,0.9)] py-2.5 pl-5 pr-2.5 text-[11px] font-light text-[#fafafa] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] transition-transform duration-300 ease-out hover:scale-[1.03]"
         >
           View on live
