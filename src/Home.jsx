@@ -193,11 +193,10 @@ export default function Home() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
-            <PillButton icon={imgIconArrowRight}>see my work</PillButton>
-            <PillButton>Graphic Design?</PillButton>
+            <PillButton icon={imgIconArrowRight} href="#work">see my work</PillButton>
+            <PillButton icon={imgIconMessage}>Graphic Design</PillButton>
             <PillButton icon={imgIconMessage}>wanna chat?</PillButton>
             <PillButton icon={imgIconMessage}>resume</PillButton>
-            <PillButton icon={imgIconMessage}>linkedin</PillButton>
           </div>
 
           <form
@@ -299,7 +298,7 @@ export default function Home() {
         </Reveal>
 
         {/* Case studies */}
-        <section className="relative flex flex-col gap-10 pb-10">
+        <section id="work" className="relative flex flex-col gap-10 pb-10">
           {CASE_STUDIES.map((study, i) => (
             <div
               key={study.id}
