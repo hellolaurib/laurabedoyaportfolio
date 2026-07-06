@@ -194,8 +194,8 @@ export default function Home() {
 
           <div className="flex flex-wrap items-center gap-3">
             <PillButton icon={imgIconArrowRight} href="#work">see my work</PillButton>
-            <PillButton icon={imgIconMessage}>Graphic Design</PillButton>
-            <PillButton icon={imgIconMessage}>wanna chat?</PillButton>
+            <PillButton icon={imgIconMessage}>experience</PillButton>
+            <PillButton icon={imgIconMessage}>graphic design</PillButton>
             <PillButton icon={imgIconMessage}>resume</PillButton>
           </div>
 
