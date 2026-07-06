@@ -66,9 +66,10 @@ export default async function handler(req, res) {
   try {
     let geminiRes = await callGemini();
 
-    // Transient overload/rate-limit errors are worth one quick retry.
-    if (geminiRes.status === 503 || geminiRes.status === 429) {
-      await new Promise((resolve) => setTimeout(resolve, 800));
+    // Transient overload/rate-limit errors are worth a couple of quick retries.
+    for (const delayMs of [800, 1600]) {
+      if (geminiRes.status !== 503 && geminiRes.status !== 429) break;
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
       geminiRes = await callGemini();
     }
 
