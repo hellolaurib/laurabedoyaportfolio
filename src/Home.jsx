@@ -17,12 +17,6 @@ import imgIconArrowRight from './assets/figma/icon-arrow-right.svg';
 import imgIconMessage from './assets/figma/icon-message.svg';
 import imgIconSend from './assets/figma/icon-send.svg';
 import imgIconArrowUpRight from './assets/figma/icon-arrow-up-right.svg';
-import imgLinkedinBriefcase from './assets/figma/vector-linkedin-1.svg';
-import imgLinkedinBuilding from './assets/figma/vector-linkedin-2.svg';
-import imgLinkedinDot from './assets/figma/vector-linkedin-3.svg';
-import imgMailBubble from './assets/figma/vector-mail-1.svg';
-import imgMailCheck from './assets/figma/vector-mail-2.svg';
-import imgMailLine from './assets/figma/vector-mail-3.svg';
 
 const NAV_LINKS = ['About', 'Resume', 'LinkedIn', 'Dribble'];
 const RESUME_URL = '/Laura_Bedoya_CV.pdf';
@@ -296,39 +290,6 @@ export default function Home() {
             </div>
           )}
 
-          {/* floating contact badges */}
-          <div className="flex flex-wrap gap-4 pt-4">
-            <div className="w-full max-w-[260px] rounded-xl border border-[rgba(255,255,255,0.3)] bg-[rgba(10,102,194,0.85)] p-4 text-white shadow-lg backdrop-blur-[6px]">
-              <p className="text-[9px] font-light uppercase tracking-[1px] text-[rgba(255,255,255,0.6)]">
-                find me online
-              </p>
-              <div className="mt-2 flex items-center gap-2">
-                <img src={imgLinkedinBriefcase} alt="" className="size-4" />
-                <img src={imgLinkedinBuilding} alt="" className="size-4" />
-                <img src={imgLinkedinDot} alt="" className="size-4" />
-                <span className="text-sm font-light">LinkedIn</span>
-              </div>
-              <p className="mt-1 text-[10.6px] font-light text-[rgba(255,255,255,0.7)]">
-                /in/laurablondono
-              </p>
-            </div>
-
-            <div className="w-full max-w-[260px] rounded-xl border border-[rgba(255,255,255,0.15)] bg-[rgba(148,18,140,0.85)] p-4 text-white shadow-lg backdrop-blur-[6px]">
-              <p className="text-[9.4px] font-light uppercase tracking-[1px] text-[rgba(250,250,250,0.5)]">
-                open to work
-              </p>
-              <div className="mt-2 flex items-center gap-2">
-                <img src={imgMailBubble} alt="" className="size-4" />
-                <img src={imgMailBubble} alt="" className="size-4" />
-                <img src={imgMailCheck} alt="" className="size-4" />
-                <img src={imgMailLine} alt="" className="size-4" />
-                <span className="text-sm font-light">Mail me</span>
-              </div>
-              <p className="mt-1 text-[10.3px] font-light text-[rgba(250,250,250,0.6)]">
-                laura.bedoyalon@gmail.com
-              </p>
-            </div>
-          </div>
         </Reveal>
 
         {/* Logo marquee */}
