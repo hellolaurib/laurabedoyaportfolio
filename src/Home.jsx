@@ -293,14 +293,14 @@ export default function Home() {
           )}
         </div>
 
-          <div className="w-full lg:w-2/5">
+          <div className="w-full overflow-hidden rounded-[24px] shadow-[0px_10px_30px_-20px_rgba(0,0,0,0.15)] lg:w-2/5">
             <video
               src={videoHome}
               autoPlay
               loop
               muted
               playsInline
-              className="w-full rounded-[24px] object-cover shadow-[0px_10px_30px_-20px_rgba(0,0,0,0.15)]"
+              className="block w-full"
             />
           </div>
         </Reveal>
