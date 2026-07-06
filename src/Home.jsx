@@ -37,6 +37,19 @@ const LOGOS = [
   { src: imgGoogleAnalytics, alt: 'Google Analytics' },
 ];
 
+function AvatarWithStatus({ size = 'size-9', className = '' }) {
+  return (
+    <span className={`relative inline-flex shrink-0 ${size} ${className}`}>
+      <img
+        src={imgGeminiAvatar}
+        alt="Laura Bedoya"
+        className="size-full rounded-full object-cover"
+      />
+      <span className="absolute bottom-0 right-0 size-2.5 rounded-full border-2 border-white bg-[#4ade80]" />
+    </span>
+  );
+}
+
 function PillButton({ children, icon, href = '#', target, rel, onClick }) {
   return (
     <a
@@ -101,13 +114,13 @@ function CaseStudy({ heading, description, image, imageAlt, tags, to = '#', dela
 
 export default function Home() {
   const [question, setQuestion] = useState('');
-  const [chat, setChat] = useState({ status: 'idle', reply: '', error: '' });
+  const [chat, setChat] = useState({ status: 'idle', question: '', reply: '', error: '' });
 
   async function askLaura(text) {
     const trimmed = text.trim();
     if (!trimmed || chat.status === 'loading') return;
 
-    setChat({ status: 'loading', reply: '', error: '' });
+    setChat({ status: 'loading', question: trimmed, reply: '', error: '' });
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
@@ -118,15 +131,16 @@ export default function Home() {
       if (!res.ok || !data) {
         throw new Error(data?.error || "Couldn't reach the assistant. Please try again.");
       }
-      setChat({ status: 'done', reply: data.reply, error: '' });
+      setChat({ status: 'done', question: trimmed, reply: data.reply, error: '' });
     } catch (err) {
-      setChat({ status: 'error', reply: '', error: err.message || 'Something went wrong.' });
+      setChat({ status: 'error', question: trimmed, reply: '', error: err.message || 'Something went wrong.' });
     }
   }
 
   function handleAskSubmit(e) {
     e.preventDefault();
     askLaura(question);
+    setQuestion('');
   }
 
   function handleExperienceClick(e) {
@@ -170,11 +184,7 @@ export default function Home() {
         {/* Header */}
         <header className="flex flex-wrap items-center justify-between gap-6">
           <a href="#" className="flex items-center gap-3">
-            <img
-              src={imgGeminiAvatar}
-              alt="Laura Bedoya"
-              className="size-9 rounded-full object-cover"
-            />
+            <AvatarWithStatus />
             <span className="text-base font-light tracking-[-0.51px] text-[#141414]">
               Laura Bedoya
             </span>
@@ -251,30 +261,39 @@ export default function Home() {
           </form>
 
           {chat.status !== 'idle' && (
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex w-full max-w-xl items-start gap-3 rounded-2xl border border-[#e0e0e0] bg-[rgba(255,255,255,0.85)] px-5 py-4 text-sm font-light text-[#141414] backdrop-blur-[6px]"
-            >
-              <img
-                src={imgGeminiAvatar}
-                alt="Laura Bedoya"
-                className="size-8 shrink-0 rounded-full object-cover"
-              />
-              <div className="flex-1 pt-1.5">
-                {chat.status === 'loading' && (
-                  <div className="flex items-center gap-1.5">
-                    <span className="size-1.5 rounded-full bg-[#6b6b6b] animate-typing-dot [animation-delay:0s]" />
-                    <span className="size-1.5 rounded-full bg-[#6b6b6b] animate-typing-dot [animation-delay:0.15s]" />
-                    <span className="size-1.5 rounded-full bg-[#6b6b6b] animate-typing-dot [animation-delay:0.3s]" />
-                  </div>
-                )}
-                {chat.status === 'error' && (
-                  <p className="text-[#e38484]">{chat.error}</p>
-                )}
-                {chat.status === 'done' && <p>{chat.reply}</p>}
-              </div>
-            </motion.div>
+            <div className="flex w-full max-w-xl flex-col gap-3">
+              {chat.question && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex justify-end"
+                >
+                  <p className="max-w-[80%] rounded-2xl rounded-br-md bg-[#141414] px-4 py-2.5 text-sm font-light text-white">
+                    {chat.question}
+                  </p>
+                </motion.div>
+              )}
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-start gap-3"
+              >
+                <AvatarWithStatus size="size-8" />
+                <div className="max-w-[80%] rounded-2xl rounded-tl-md border border-[#e0e0e0] bg-[rgba(255,255,255,0.85)] px-4 py-3 text-sm font-light text-[#141414] shadow-[0px_1px_2px_rgba(0,0,0,0.04)] backdrop-blur-[6px]">
+                  {chat.status === 'loading' && (
+                    <div className="flex items-center gap-1.5 py-0.5">
+                      <span className="size-1.5 rounded-full bg-[#6b6b6b] animate-typing-dot [animation-delay:0s]" />
+                      <span className="size-1.5 rounded-full bg-[#6b6b6b] animate-typing-dot [animation-delay:0.15s]" />
+                      <span className="size-1.5 rounded-full bg-[#6b6b6b] animate-typing-dot [animation-delay:0.3s]" />
+                    </div>
+                  )}
+                  {chat.status === 'error' && (
+                    <p className="text-[#e38484]">{chat.error}</p>
+                  )}
+                  {chat.status === 'done' && <p>{chat.reply}</p>}
+                </div>
+              </motion.div>
+            </div>
           )}
 
           {/* floating contact badges */}
