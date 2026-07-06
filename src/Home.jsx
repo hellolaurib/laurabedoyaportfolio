@@ -37,12 +37,13 @@ const LOGOS = [
   { src: imgGoogleAnalytics, alt: 'Google Analytics' },
 ];
 
-function PillButton({ children, icon, href = '#', target, rel }) {
+function PillButton({ children, icon, href = '#', target, rel, onClick }) {
   return (
     <a
       href={href}
       target={target}
       rel={rel}
+      onClick={onClick}
       className="inline-flex items-center gap-2 rounded-full border border-[rgba(20,20,20,0.2)] bg-white px-5 py-2.5 text-xs font-light text-[#141414] shadow-[0px_1px_1px_rgba(0,0,0,0.05)] transition-colors duration-300 ease-out hover:bg-[#141414] hover:text-white sm:text-sm"
     >
       {children}
@@ -102,9 +103,8 @@ export default function Home() {
   const [question, setQuestion] = useState('');
   const [chat, setChat] = useState({ status: 'idle', reply: '', error: '' });
 
-  async function handleAskSubmit(e) {
-    e.preventDefault();
-    const trimmed = question.trim();
+  async function askLaura(text) {
+    const trimmed = text.trim();
     if (!trimmed || chat.status === 'loading') return;
 
     setChat({ status: 'loading', reply: '', error: '' });
@@ -122,6 +122,19 @@ export default function Home() {
     } catch (err) {
       setChat({ status: 'error', reply: '', error: err.message || 'Something went wrong.' });
     }
+  }
+
+  function handleAskSubmit(e) {
+    e.preventDefault();
+    askLaura(question);
+  }
+
+  function handleExperienceClick(e) {
+    e.preventDefault();
+    setQuestion('');
+    askLaura(
+      "Give me a summary of your professional experience: roles, companies, years, and industries.",
+    );
   }
 
   return (
@@ -202,7 +215,9 @@ export default function Home() {
 
           <div className="flex flex-wrap items-center gap-3">
             <PillButton icon={imgIconArrowRight} href="#work">see my work</PillButton>
-            <PillButton icon={imgIconMessage}>experience</PillButton>
+            <PillButton icon={imgIconMessage} onClick={handleExperienceClick}>
+              experience
+            </PillButton>
             <PillButton icon={imgIconMessage}>graphic design</PillButton>
             <PillButton icon={imgIconMessage} href={RESUME_URL} target="_blank" rel="noopener noreferrer">
               resume

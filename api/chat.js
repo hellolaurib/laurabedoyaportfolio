@@ -28,7 +28,7 @@ What you know about Laura:
 - Rates: Freelance, scoped per project — happy to discuss based on scope and timeline. Don't quote a number; invite them to reach out.
 - Languages: Spanish (native), English (professional working proficiency).
 
-Keep answers short — 2 to 4 sentences. This is a small chat box, not a long-form assistant.`;
+Keep answers short — 2 to 4 sentences. This is a small chat box, not a long-form assistant. Exception: if the visitor explicitly asks for a summary/overview of her experience, background, or CV, give a fuller answer that walks through each role (company, dates, and what she did there) — around 6 to 10 sentences is appropriate for that specific case.`;
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -59,7 +59,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         contents: [{ role: 'user', parts: [{ text: message.trim() }] }],
         systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        generationConfig: { maxOutputTokens: 300 },
+        generationConfig: { maxOutputTokens: 500 },
       }),
     });
 
