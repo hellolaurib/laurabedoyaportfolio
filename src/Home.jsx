@@ -25,6 +25,7 @@ import imgMailCheck from './assets/figma/vector-mail-2.svg';
 import imgMailLine from './assets/figma/vector-mail-3.svg';
 
 const NAV_LINKS = ['About', 'Resume', 'LinkedIn', 'Dribble'];
+const RESUME_URL = '/Laura_Bedoya_CV.pdf';
 
 const LOGOS = [
   { src: imgMiro, alt: 'Miro' },
@@ -36,10 +37,12 @@ const LOGOS = [
   { src: imgGoogleAnalytics, alt: 'Google Analytics' },
 ];
 
-function PillButton({ children, icon, href = '#' }) {
+function PillButton({ children, icon, href = '#', target, rel }) {
   return (
     <a
       href={href}
+      target={target}
+      rel={rel}
       className="inline-flex items-center gap-2 rounded-full border border-[rgba(20,20,20,0.2)] bg-white px-5 py-2.5 text-xs font-light text-[#141414] shadow-[0px_1px_1px_rgba(0,0,0,0.05)] transition-colors duration-300 ease-out hover:bg-[#141414] hover:text-white sm:text-sm"
     >
       {children}
@@ -164,15 +167,20 @@ export default function Home() {
             </span>
           </a>
           <nav className="flex flex-wrap items-center gap-1 rounded-full border border-[rgba(224,224,224,0.6)] bg-[rgba(255,255,255,0.85)] px-2 py-2 text-sm font-light text-[rgba(20,20,20,0.8)] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] backdrop-blur-[6px]">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-300 ease-out hover:bg-[rgba(20,20,20,0.06)]"
-              >
-                {link}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isResume = link === 'Resume';
+              return (
+                <a
+                  key={link}
+                  href={isResume ? RESUME_URL : '#'}
+                  target={isResume ? '_blank' : undefined}
+                  rel={isResume ? 'noopener noreferrer' : undefined}
+                  className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-300 ease-out hover:bg-[rgba(20,20,20,0.06)]"
+                >
+                  {link}
+                </a>
+              );
+            })}
           </nav>
         </header>
 
@@ -196,7 +204,9 @@ export default function Home() {
             <PillButton icon={imgIconArrowRight} href="#work">see my work</PillButton>
             <PillButton icon={imgIconMessage}>experience</PillButton>
             <PillButton icon={imgIconMessage}>graphic design</PillButton>
-            <PillButton icon={imgIconMessage}>resume</PillButton>
+            <PillButton icon={imgIconMessage} href={RESUME_URL} target="_blank" rel="noopener noreferrer">
+              resume
+            </PillButton>
           </div>
 
           <form
