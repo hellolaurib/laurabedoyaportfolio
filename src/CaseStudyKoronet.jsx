@@ -222,7 +222,7 @@ export default function CaseStudyKoronet() {
                 {item.emoji}
               </span>
               <div className="max-w-lg rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[4px] rounded-br-[16px] border border-[#e0e0e0] bg-[#f0f0f0] px-5 py-4">
-                <p className="font-serif text-sm italic text-[#141414]">
+                <p className="font-serif text-sm font-light italic text-[#141414]">
                   &ldquo;{item.quote}&rdquo;
                 </p>
               </div>
@@ -367,7 +367,7 @@ export default function CaseStudyKoronet() {
           ecosystem.
         </p>
         <div className="flex gap-6 border-l border-[rgba(20,20,20,0.15)] pl-6">
-          <p className="font-serif text-lg italic text-[#0a0a0a]">
+          <p className="font-serif text-lg font-light italic text-[#0a0a0a]">
             💖 <span className="font-medium">What i learn?</span>
             <br />
             <br />

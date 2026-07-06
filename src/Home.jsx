@@ -341,7 +341,7 @@ export default function Home() {
 
         {/* Select interfaces */}
         <Reveal as="section" className="flex flex-col gap-10">
-          <h2 className="font-serif text-3xl italic tracking-[-2.2px] text-black sm:text-[44px]">
+          <h2 className="font-serif text-3xl font-light italic tracking-[-2.2px] text-black sm:text-[44px]">
             Select interfaces
           </h2>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -356,7 +356,7 @@ export default function Home() {
 
         {/* Contact */}
         <Reveal as="section" className="flex flex-col items-center gap-8 py-12 text-center">
-          <p className="flex flex-wrap items-end justify-center gap-3 font-serif text-2xl italic tracking-[-2.2px] text-[#6e6e6e] sm:text-3xl">
+          <p className="flex flex-wrap items-end justify-center gap-3 font-serif text-2xl font-light italic tracking-[-2.2px] text-[#6e6e6e] sm:text-3xl">
             <span className="text-4xl not-italic sm:text-[44px]">💌</span>
             <span>
               Let&apos;s connect.{' '}

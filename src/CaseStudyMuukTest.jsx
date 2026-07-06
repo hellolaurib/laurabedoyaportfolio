@@ -339,7 +339,7 @@ export default function CaseStudyMuukTest() {
           for sustained growth well beyond the launch window.
         </p>
         <div className="flex gap-6 border-l border-[rgba(20,20,20,0.15)] pl-6">
-          <p className="font-serif text-lg italic text-[#0a0a0a]">
+          <p className="font-serif text-lg font-light italic text-[#0a0a0a]">
             💖 <span className="font-medium">What i learn?</span>
             <br />
             <br />
