@@ -229,15 +229,26 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              className="w-full max-w-xl rounded-2xl border border-[#e0e0e0] bg-[rgba(255,255,255,0.85)] px-5 py-4 text-sm font-light text-[#141414] backdrop-blur-[6px]"
+              className="flex w-full max-w-xl items-start gap-3 rounded-2xl border border-[#e0e0e0] bg-[rgba(255,255,255,0.85)] px-5 py-4 text-sm font-light text-[#141414] backdrop-blur-[6px]"
             >
-              {chat.status === 'loading' && (
-                <p className="text-[#6b6b6b]">Thinking…</p>
-              )}
-              {chat.status === 'error' && (
-                <p className="text-[#e38484]">{chat.error}</p>
-              )}
-              {chat.status === 'done' && <p>{chat.reply}</p>}
+              <img
+                src={imgGeminiAvatar}
+                alt="Laura Bedoya"
+                className="size-8 shrink-0 rounded-full object-cover"
+              />
+              <div className="flex-1 pt-1.5">
+                {chat.status === 'loading' && (
+                  <div className="flex items-center gap-1.5">
+                    <span className="size-1.5 rounded-full bg-[#6b6b6b] animate-typing-dot [animation-delay:0s]" />
+                    <span className="size-1.5 rounded-full bg-[#6b6b6b] animate-typing-dot [animation-delay:0.15s]" />
+                    <span className="size-1.5 rounded-full bg-[#6b6b6b] animate-typing-dot [animation-delay:0.3s]" />
+                  </div>
+                )}
+                {chat.status === 'error' && (
+                  <p className="text-[#e38484]">{chat.error}</p>
+                )}
+                {chat.status === 'done' && <p>{chat.reply}</p>}
+              </div>
             </motion.div>
           )}
 
