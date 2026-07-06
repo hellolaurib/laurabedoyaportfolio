@@ -52,7 +52,7 @@ function CaseStudy({ heading, description, image, imageAlt, reverse, to = '#', d
     <Reveal
       as="section"
       delay={delay}
-      className={`group flex flex-col items-center gap-8 rounded-[33px] border border-[rgba(20,20,20,0.14)] p-6 sm:p-10 md:gap-12 lg:flex-row lg:p-14 ${
+      className={`group flex flex-col items-center gap-8 rounded-[33px] border border-[rgba(20,20,20,0.14)] bg-white p-6 shadow-[0px_30px_60px_-30px_rgba(0,0,0,0.3)] sm:p-10 md:gap-12 lg:flex-row lg:p-14 ${
         reverse ? 'lg:flex-row-reverse' : ''
       }`}
     >
@@ -87,29 +87,31 @@ function CaseStudy({ heading, description, image, imageAlt, reverse, to = '#', d
 export default function Home() {
   return (
     <motion.div
-      className="relative overflow-hidden bg-white text-[#141414]"
+      className="relative bg-white text-[#141414]"
       initial={pageTransition.initial}
       animate={pageTransition.animate}
       exit={pageTransition.exit}
       transition={pageTransitionTiming}
     >
       {/* decorative gradient blobs */}
-      <div
-        className="pointer-events-none absolute -left-24 top-0 h-[600px] w-[900px] opacity-40"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 50% 50%, rgba(229,85,116,0.35), rgba(180,67,173,0.18) 40%, transparent 70%)",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute left-1/4 top-[3900px] h-[500px] w-[900px] opacity-40"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 50% 50%, rgba(229,85,116,0.35), rgba(180,67,173,0.18) 40%, transparent 70%)",
-        }}
-      />
-      <div className="pointer-events-none absolute -left-24 -top-52 size-[130px]">
-        <img alt="" className="size-full" src={imgEllipse33} />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <div
+          className="absolute -left-24 top-0 h-[600px] w-[900px] opacity-40"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 50% 50%, rgba(229,85,116,0.35), rgba(180,67,173,0.18) 40%, transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute left-1/4 top-[3900px] h-[500px] w-[900px] opacity-40"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 50% 50%, rgba(229,85,116,0.35), rgba(180,67,173,0.18) 40%, transparent 70%)",
+          }}
+        />
+        <div className="absolute -left-24 -top-52 size-[130px]">
+          <img alt="" className="size-full" src={imgEllipse33} />
+        </div>
       </div>
 
       <div className="relative mx-auto flex max-w-[1320px] flex-col gap-24 px-6 py-8 sm:px-10 sm:py-12 md:gap-32 lg:px-16">
@@ -235,9 +237,15 @@ export default function Home() {
         </Reveal>
 
         {/* Case studies */}
-        <section className="flex flex-col gap-10">
+        <section className="relative flex flex-col gap-10 pb-10">
           {CASE_STUDIES.map((study, i) => (
-            <CaseStudy key={study.id} {...study} reverse={i % 2 === 1} delay={i * 0.05} />
+            <div
+              key={study.id}
+              className="sticky"
+              style={{ top: `${96 + i * 24}px`, zIndex: i + 1 }}
+            >
+              <CaseStudy {...study} reverse={i % 2 === 1} delay={i * 0.05} />
+            </div>
           ))}
         </section>
 
