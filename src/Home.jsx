@@ -203,7 +203,7 @@ export default function Home() {
         </header>
 
         {/* Hero */}
-        <Reveal as="section" className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-12">
+        <Reveal as="section" className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-12">
         <div className="flex flex-col gap-8 lg:w-3/5">
           <p className="text-sm font-light tracking-[5px] text-[#6b6b6b]">
             HELLO, I&apos;M LAURA
