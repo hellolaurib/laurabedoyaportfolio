@@ -1,5 +1,5 @@
-const GEMINI_MODEL = 'gemini-2.5-flash-lite';
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+const GROQ_MODEL = 'llama-3.3-70b-versatile';
+const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
 const SYSTEM_PROMPT = `You are the assistant embedded in Laura Bedoya's UI/UX design portfolio website, answering visitor questions in a small chat box on her homepage. Speak about Laura in the third person, warmly and conversationally — you are not Laura, and you are not a generic AI assistant.
 
@@ -46,48 +46,54 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Message is too long' });
   }
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
-    console.error('GEMINI_API_KEY is not set');
+    console.error('GROQ_API_KEY is not set');
     return res.status(500).json({ error: 'Something went wrong. Please try again.' });
   }
 
-  const callGemini = () =>
-    fetch(`${GEMINI_URL}?key=${apiKey}`, {
+  const callGroq = () =>
+    fetch(GROQ_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
       body: JSON.stringify({
-        contents: [{ role: 'user', parts: [{ text: message.trim() }] }],
-        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        generationConfig: { maxOutputTokens: 500 },
+        model: GROQ_MODEL,
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          { role: 'user', content: message.trim() },
+        ],
+        max_tokens: 500,
       }),
     });
 
   try {
-    let geminiRes = await callGemini();
+    let groqRes = await callGroq();
 
     // Transient overload/rate-limit errors are worth a couple of quick retries.
     for (const delayMs of [800, 1600]) {
-      if (geminiRes.status !== 503 && geminiRes.status !== 429) break;
+      if (groqRes.status !== 503 && groqRes.status !== 429) break;
       await new Promise((resolve) => setTimeout(resolve, delayMs));
-      geminiRes = await callGemini();
+      groqRes = await callGroq();
     }
 
-    const data = await geminiRes.json();
+    const data = await groqRes.json();
 
-    if (!geminiRes.ok) {
-      console.error('Gemini API error:', data);
+    if (!groqRes.ok) {
+      console.error('Groq API error:', data);
       return res.status(502).json({ error: 'Something went wrong. Please try again.' });
     }
 
-    const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text).join('') ?? '';
+    const text = data.choices?.[0]?.message?.content ?? '';
     if (!text) {
       return res.status(502).json({ error: "Couldn't get a response. Please try again." });
     }
 
     return res.status(200).json({ reply: text });
   } catch (error) {
-    console.error('Gemini API error:', error);
+    console.error('Groq API error:', error);
     return res.status(500).json({ error: 'Something went wrong. Please try again.' });
   }
 }
