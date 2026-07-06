@@ -1,6 +1,5 @@
-import Anthropic from '@anthropic-ai/sdk';
-
-const anthropic = new Anthropic();
+const GEMINI_MODEL = 'gemini-3.5-flash';
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
 const SYSTEM_PROMPT = `You are the assistant embedded in Laura Bedoya's UI/UX design portfolio website, answering visitor questions in a small chat box on her homepage. Speak about Laura in the third person, warmly and conversationally — you are not Laura, and you are not a generic AI assistant.
 
@@ -33,18 +32,38 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Message is too long' });
   }
 
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.error('GEMINI_API_KEY is not set');
+    return res.status(500).json({ error: 'Something went wrong. Please try again.' });
+  }
+
   try {
-    const response = await anthropic.messages.create({
-      model: 'claude-haiku-4-5',
-      max_tokens: 300,
-      system: SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: message.trim() }],
+    const geminiRes = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ role: 'user', parts: [{ text: message.trim() }] }],
+        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        generationConfig: { maxOutputTokens: 300 },
+      }),
     });
 
-    const text = response.content.find((block) => block.type === 'text')?.text ?? '';
+    const data = await geminiRes.json();
+
+    if (!geminiRes.ok) {
+      console.error('Gemini API error:', data);
+      return res.status(502).json({ error: 'Something went wrong. Please try again.' });
+    }
+
+    const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text).join('') ?? '';
+    if (!text) {
+      return res.status(502).json({ error: "Couldn't get a response. Please try again." });
+    }
+
     return res.status(200).json({ reply: text });
   } catch (error) {
-    console.error('Anthropic API error:', error);
+    console.error('Gemini API error:', error);
     return res.status(500).json({ error: 'Something went wrong. Please try again.' });
   }
 }
