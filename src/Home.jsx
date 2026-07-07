@@ -222,8 +222,8 @@ export default function Home() {
                 >
                   {link}
                   {isDribble && (
-                    <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[#141414] px-2 py-1 text-[11px] font-light text-[#e38484] opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100">
-                      Coming soon
+                    <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#e38484] px-4 py-1.5 text-[11px] font-light text-white opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100">
+                      Coming soon ✦
                     </span>
                   )}
                 </a>
