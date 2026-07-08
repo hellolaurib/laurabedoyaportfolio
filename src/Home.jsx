@@ -412,7 +412,7 @@ export default function Home() {
         </Reveal>
 
         {/* Footer */}
-        <footer className="flex flex-col items-center gap-3 border-t border-[rgba(20,20,20,0.1)] py-8 text-center text-[10.7px] font-light text-[#6b6b6b] sm:flex-row sm:justify-between sm:text-left">
+        <footer className="-mt-16 flex flex-col items-center gap-3 border-t border-[rgba(20,20,20,0.1)] py-8 text-center text-[10.7px] font-light text-[#6b6b6b] sm:flex-row sm:justify-between sm:text-left md:-mt-24">
           <span className="tracking-[-0.54px] text-[#696969]">
             ©2026 Laura Bedoya
           </span>
