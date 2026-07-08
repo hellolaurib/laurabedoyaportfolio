@@ -391,14 +391,14 @@ export default function Home() {
         </Reveal>
 
         {/* Contact */}
-        <Reveal as="section" className="flex flex-col items-center gap-8 py-12 text-center">
+        <Reveal as="section" className="flex flex-col items-center gap-3 py-4 text-center">
           <video
             src={videoConnect}
             autoPlay
             loop
             muted
             playsInline
-            className="w-full max-w-md rounded-[24px]"
+            className="-my-10 w-full max-w-xs rounded-[24px] sm:max-w-sm"
           />
           <p className="flex flex-wrap items-end justify-center gap-3 font-serif text-2xl font-light italic tracking-[-2.2px] text-[#6e6e6e] sm:text-3xl">
             <span className="text-4xl not-italic sm:text-[44px]">💌</span>
