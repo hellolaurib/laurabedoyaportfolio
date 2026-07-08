@@ -18,6 +18,7 @@ import imgIconMessage from './assets/figma/icon-message.svg';
 import imgIconSend from './assets/figma/icon-send.svg';
 import imgIconArrowUpRight from './assets/figma/icon-arrow-up-right.svg';
 import videoHome from './assets/figma/gif-home.mp4';
+import videoConnect from './assets/figma/video-connect.mp4';
 
 const NAV_LINKS = ['About', 'Resume', 'LinkedIn', 'Dribble'];
 const RESUME_URL = '/Laura_Bedoya_CV.pdf';
@@ -391,6 +392,14 @@ export default function Home() {
 
         {/* Contact */}
         <Reveal as="section" className="flex flex-col items-center gap-8 py-12 text-center">
+          <video
+            src={videoConnect}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full max-w-md rounded-[24px]"
+          />
           <p className="flex flex-wrap items-end justify-center gap-3 font-serif text-2xl font-light italic tracking-[-2.2px] text-[#6e6e6e] sm:text-3xl">
             <span className="text-4xl not-italic sm:text-[44px]">💌</span>
             <span>
