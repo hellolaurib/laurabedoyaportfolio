@@ -36,6 +36,7 @@ import imgInterface12 from './assets/figma/select-interface-12.jpg';
 const NAV_LINKS = ['About', 'Resume', 'LinkedIn', 'Dribble'];
 const RESUME_URL = '/Laura_Bedoya_CV.pdf';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/laurablondono/';
+const CONTACT_EMAIL = 'laura.bedoyalon@gmail.com';
 
 const LOGOS = [
   { src: imgMiro, alt: 'Miro' },
@@ -453,14 +454,16 @@ export default function Home() {
 
         {/* Contact */}
         <Reveal as="section" className="flex flex-col items-center gap-3 py-4 text-center">
-          <video
-            src={videoConnect}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="-my-10 w-full max-w-xs rounded-[24px] sm:max-w-sm"
-          />
+          <a href={`mailto:${CONTACT_EMAIL}`} className="block w-full max-w-xs sm:max-w-sm">
+            <video
+              src={videoConnect}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="-my-10 w-full rounded-[24px]"
+            />
+          </a>
           <p className="flex flex-wrap items-end justify-center gap-3 font-serif text-2xl font-light italic tracking-[-2.2px] text-[#6e6e6e] sm:text-3xl">
             <span className="text-4xl not-italic sm:text-[44px]">💌</span>
             <span>
