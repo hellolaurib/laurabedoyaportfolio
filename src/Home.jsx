@@ -48,21 +48,21 @@ const LOGOS = [
 ];
 
 const INTERFACES_ROW_1 = [
-  { src: imgInterface1, alt: 'Solar energy landing page' },
-  { src: imgInterface2, alt: 'AimLite product page' },
-  { src: imgInterface3, alt: 'Sheva ecommerce product page' },
-  { src: imgInterface4, alt: 'Stanpro lighting site' },
-  { src: imgInterface5, alt: 'Interface design preview' },
-  { src: imgInterface6, alt: 'Interface design preview' },
+  { src: imgInterface1, alt: 'Sheva ecommerce product page', href: 'https://shevabrand.com/' },
+  { src: imgInterface2, alt: 'Zolarzo solar energy landing page', href: 'https://zolarzo.com/es' },
+  { src: imgInterface3, alt: 'AimLite product page', href: 'https://www.aimlite.com' },
+  { src: imgInterface4, alt: 'Stanpro lighting site', href: 'https://www.standardpro.com' },
+  { src: imgInterface5, alt: 'Make-A-Wish Colombia', href: 'https://www.makeawishco.org' },
+  { src: imgInterface6, alt: 'Truelogic website', href: 'https://truelogic.io' },
 ];
 
 const INTERFACES_ROW_2 = [
-  { src: imgInterface7, alt: 'Trycia machinery site' },
-  { src: imgInterface8, alt: 'Interface design preview' },
-  { src: imgInterface9, alt: 'Interface design preview' },
-  { src: imgInterface10, alt: 'Biomax landing page' },
-  { src: imgInterface11, alt: 'Interface design preview' },
-  { src: imgInterface12, alt: 'Interface design preview' },
+  { src: imgInterface7, alt: 'Tractosol website', href: 'https://tractosol.com.mx/' },
+  { src: imgInterface8, alt: 'Civica interface concept', inProcess: true },
+  { src: imgInterface9, alt: 'Trycia machinery site', href: 'https://trycia.com.mx/' },
+  { src: imgInterface10, alt: 'Jumak jewelry store', inProcess: true },
+  { src: imgInterface11, alt: 'Biomax landing page', href: 'https://www.biomax.co/' },
+  { src: imgInterface12, alt: 'Presente landing page', href: 'https://www.presente.com.co/' },
 ];
 
 function AvatarWithStatus({ size = 'size-9', className = '' }) {
@@ -78,14 +78,32 @@ function AvatarWithStatus({ size = 'size-9', className = '' }) {
   );
 }
 
-function InterfaceCard({ src, alt }) {
+function InterfaceCard({ src, alt, href, inProcess }) {
+  const Wrapper = inProcess ? 'div' : 'a';
+  const wrapperProps = inProcess
+    ? {}
+    : { href, target: '_blank', rel: 'noopener noreferrer' };
+
   return (
-    <div className="group/card relative size-[220px] shrink-0 overflow-hidden rounded-[24px] sm:size-[260px]">
-      <img src={src} alt={alt} className="size-full object-cover object-top" />
-      <span className="absolute bottom-2.5 right-2.5 flex size-7 items-center justify-center rounded-full bg-black">
-        <img src={imgIconLinkOverlay} alt="" className="size-3" />
-      </span>
-    </div>
+    <Wrapper
+      {...wrapperProps}
+      className={`group/card relative block size-[220px] shrink-0 overflow-hidden rounded-[24px] sm:size-[260px] ${inProcess ? 'cursor-default' : 'cursor-pointer'}`}
+    >
+      <img
+        src={src}
+        alt={alt}
+        className="size-full object-cover object-top transition-transform duration-300 ease-out group-hover/card:scale-110"
+      />
+      {inProcess ? (
+        <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-[#e38484] px-4 py-1.5 text-[11px] font-light text-white opacity-0 transition-opacity duration-200 group-hover/card:opacity-100">
+          In process ✦
+        </span>
+      ) : (
+        <span className="absolute bottom-2.5 right-2.5 flex size-7 items-center justify-center rounded-full bg-black">
+          <img src={imgIconLinkOverlay} alt="" className="size-3" />
+        </span>
+      )}
+    </Wrapper>
   );
 }
 
