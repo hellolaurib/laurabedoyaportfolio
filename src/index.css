@@ -28,6 +28,10 @@ body {
   animation: marquee 28s linear infinite;
 }
 
+.animate-marquee-reverse {
+  animation: marquee 28s linear infinite reverse;
+}
+
 @keyframes typing-dot {
   0%,
   60%,

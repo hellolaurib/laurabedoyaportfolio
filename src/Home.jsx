@@ -19,6 +19,19 @@ import imgIconSend from './assets/figma/icon-send.svg';
 import imgIconArrowUpRight from './assets/figma/icon-arrow-up-right.svg';
 import videoHome from './assets/figma/gif-home.mp4';
 import videoConnect from './assets/figma/video-connect.mp4';
+import imgIconLinkOverlay from './assets/figma/icon-link-overlay.svg';
+import imgInterface1 from './assets/figma/select-interface-1.jpg';
+import imgInterface2 from './assets/figma/select-interface-2.jpg';
+import imgInterface3 from './assets/figma/select-interface-3.png';
+import imgInterface4 from './assets/figma/select-interface-4.jpg';
+import imgInterface5 from './assets/figma/select-interface-5.jpg';
+import imgInterface6 from './assets/figma/select-interface-6.jpg';
+import imgInterface7 from './assets/figma/select-interface-7.jpg';
+import imgInterface8 from './assets/figma/select-interface-8.jpg';
+import imgInterface9 from './assets/figma/select-interface-9.png';
+import imgInterface10 from './assets/figma/select-interface-10.jpg';
+import imgInterface11 from './assets/figma/select-interface-11.jpg';
+import imgInterface12 from './assets/figma/select-interface-12.jpg';
 
 const NAV_LINKS = ['About', 'Resume', 'LinkedIn', 'Dribble'];
 const RESUME_URL = '/Laura_Bedoya_CV.pdf';
@@ -34,6 +47,24 @@ const LOGOS = [
   { src: imgGoogleAnalytics, alt: 'Google Analytics' },
 ];
 
+const INTERFACES_ROW_1 = [
+  { src: imgInterface1, alt: 'Solar energy landing page' },
+  { src: imgInterface2, alt: 'AimLite product page' },
+  { src: imgInterface3, alt: 'Sheva ecommerce product page' },
+  { src: imgInterface4, alt: 'Stanpro lighting site' },
+  { src: imgInterface5, alt: 'Interface design preview' },
+  { src: imgInterface6, alt: 'Interface design preview' },
+];
+
+const INTERFACES_ROW_2 = [
+  { src: imgInterface7, alt: 'Trycia machinery site' },
+  { src: imgInterface8, alt: 'Interface design preview' },
+  { src: imgInterface9, alt: 'Interface design preview' },
+  { src: imgInterface10, alt: 'Biomax landing page' },
+  { src: imgInterface11, alt: 'Interface design preview' },
+  { src: imgInterface12, alt: 'Interface design preview' },
+];
+
 function AvatarWithStatus({ size = 'size-9', className = '' }) {
   return (
     <span className={`relative inline-flex shrink-0 ${size} ${className}`}>
@@ -44,6 +75,17 @@ function AvatarWithStatus({ size = 'size-9', className = '' }) {
       />
       <span className="absolute bottom-0 right-0 size-2.5 rounded-full border-2 border-white bg-[#4ade80]" />
     </span>
+  );
+}
+
+function InterfaceCard({ src, alt }) {
+  return (
+    <div className="group/card relative size-[220px] shrink-0 overflow-hidden rounded-[24px] sm:size-[260px]">
+      <img src={src} alt={alt} className="size-full object-cover object-top" />
+      <span className="absolute bottom-2.5 right-2.5 flex size-7 items-center justify-center rounded-full bg-black">
+        <img src={imgIconLinkOverlay} alt="" className="size-3" />
+      </span>
+    </div>
   );
 }
 
@@ -179,13 +221,6 @@ export default function Home() {
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
         <div
           className="absolute -left-24 top-0 h-[600px] w-[900px] opacity-40"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 50% 50%, rgba(229,85,116,0.35), rgba(180,67,173,0.18) 40%, transparent 70%)",
-          }}
-        />
-        <div
-          className="absolute left-1/4 top-[3900px] h-[500px] w-[900px] opacity-40"
           style={{
             backgroundImage:
               "radial-gradient(circle at 50% 50%, rgba(229,85,116,0.35), rgba(180,67,173,0.18) 40%, transparent 70%)",
@@ -380,13 +415,21 @@ export default function Home() {
           <h2 className="font-serif text-3xl font-light italic tracking-[-2.2px] text-black sm:text-[44px]">
             Select interfaces
           </h2>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-[287/309] rounded-[24px] border border-[#141414] transition-colors duration-300 ease-out hover:border-[rgba(20,20,20,0.4)]"
-              />
-            ))}
+          <div className="flex flex-col gap-4">
+            <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+              <div className="flex w-max animate-marquee items-center gap-4">
+                {[...INTERFACES_ROW_1, ...INTERFACES_ROW_1].map((item, i) => (
+                  <InterfaceCard key={`${item.alt}-${i}`} {...item} />
+                ))}
+              </div>
+            </div>
+            <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+              <div className="flex w-max animate-marquee-reverse items-center gap-4">
+                {[...INTERFACES_ROW_2, ...INTERFACES_ROW_2].map((item, i) => (
+                  <InterfaceCard key={`${item.alt}-${i}`} {...item} />
+                ))}
+              </div>
+            </div>
           </div>
         </Reveal>
 
