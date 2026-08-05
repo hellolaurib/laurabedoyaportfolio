@@ -9,6 +9,7 @@ import imgMiro from './assets/figma/webflow.webp';
 import imgFramer from './assets/figma/framer.png';
 import imgFigmaIcon from './assets/figma/figma-icon.png';
 import imgGoogleAnalytics from './assets/figma/unnamed1.jpg';
+import imgShopify from './assets/figma/shopify-logo.svg';
 import imgClickUp from './assets/figma/clickup-emblem.png';
 import imgLovable from './assets/figma/lovable-logo.png';
 import imgGeminiAvatar from './assets/figma/gemini-avatar.png';
@@ -46,6 +47,7 @@ const LOGOS = [
   { src: imgClickUp, alt: 'ClickUp' },
   { src: imgLovable, alt: 'Lovable' },
   { src: imgGoogleAnalytics, alt: 'Google Analytics' },
+  { src: imgShopify, alt: 'Shopify' },
 ];
 
 const INTERFACES_ROW_1 = [
