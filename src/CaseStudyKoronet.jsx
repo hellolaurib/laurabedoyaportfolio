@@ -1,4 +1,7 @@
 import CaseStudyShell, { Eyebrow, Section, Divider } from './CaseStudyShell';
+import Reveal from './Reveal';
+import BrowserScrollVideo from './BrowserScrollVideo';
+import videoKoronetHome from './assets/figma/koronet-home-scroll.mp4';
 import imgMockupUserResearch from './assets/figma/koronet-mockup-user-research.png';
 import imgMockupArchitecture from './assets/figma/koronet-mockup-architecture.png';
 import imgMockupProcess1 from './assets/figma/koronet-mockup-process-1.png';
@@ -108,8 +111,10 @@ export default function CaseStudyKoronet() {
       sideNav={SIDE_NAV}
     >
       {/* Overview */}
-      <Section id="overview" eyebrow="OVERVIEW" heading="In the floral industry, complexity doesn't sell. Clarity does.">
-        <div className="aspect-[889/457] w-full rounded-[16px] border border-[rgba(20,20,20,0.14)]" />
+      <Reveal as="div" id="overview" className="scroll-mt-24">
+        <BrowserScrollVideo src={videoKoronetHome} url="koronet.com" />
+      </Reveal>
+      <Section eyebrow="OVERVIEW" heading="In the floral industry, complexity doesn't sell. Clarity does.">
         <p className="text-base text-[#0a0a0a]">
           Koronet unifies three floral industry platforms under one brand but their
           website wasn&apos;t telling that story. I redesigned their primary
