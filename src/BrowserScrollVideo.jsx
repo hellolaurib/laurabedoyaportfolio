@@ -7,6 +7,8 @@ export default function BrowserScrollVideo({ src, url, className = '' }) {
   const containerRef = useRef(null);
   const [progress, setProgress] = useState(0);
   const [isTouch, setIsTouch] = useState(false);
+  const [hovering, setHovering] = useState(false);
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     setIsTouch(window.matchMedia('(pointer: coarse)').matches);
@@ -48,6 +50,11 @@ export default function BrowserScrollVideo({ src, url, className = '' }) {
     return () => container.removeEventListener('wheel', handleWheel);
   }, [isTouch]);
 
+  const handleMouseMove = (e) => {
+    const rect = containerRef.current.getBoundingClientRect();
+    setCursor({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
   return (
     <div
       className={`w-full overflow-hidden rounded-[16px] border border-[rgba(20,20,20,0.14)] shadow-[0_8px_24px_rgba(0,0,0,0.08)] ${className}`}
@@ -64,7 +71,10 @@ export default function BrowserScrollVideo({ src, url, className = '' }) {
       </div>
       <div
         ref={containerRef}
-        className="group relative aspect-[1440/662] w-full overflow-hidden bg-black"
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
+        className="relative aspect-[1440/662] w-full overflow-hidden bg-black"
       >
         <video
           ref={videoRef}
@@ -76,9 +86,12 @@ export default function BrowserScrollVideo({ src, url, className = '' }) {
           loop={isTouch}
           className="absolute inset-0 size-full object-cover"
         />
-        {!isTouch && progress < 0.02 && (
-          <div className="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center">
-            <span className="rounded-full bg-[#e38484] px-4 py-1.5 text-[11px] font-light text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        {!isTouch && hovering && progress < 0.02 && (
+          <div
+            className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-[150%]"
+            style={{ left: cursor.x, top: cursor.y }}
+          >
+            <span className="whitespace-nowrap rounded-full bg-[#e38484] px-4 py-1.5 text-[11px] font-light text-white">
               Scroll to explore ↓
             </span>
           </div>
