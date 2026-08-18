@@ -1,6 +1,6 @@
 import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider } from './CaseStudyShell';
 import imgMockupSolution from './assets/figma/muuktest-mockup-solution.jpg';
-import imgIpadScreenshot from './assets/figma/muuktest-ipad-screenshot.png';
+import imgIpadScreenshot from './assets/figma/muuktest-ipad-screenshot.jpg';
 import imgMockupArchitecture from './assets/figma/muuktest-mockup-architecture.jpg';
 import imgMockupProcess1 from './assets/figma/muuktest-mockup-process-1.jpg';
 import imgMockupProcess2 from './assets/figma/muuktest-mockup-process-2.png';
@@ -185,7 +185,7 @@ export default function CaseStudyMuukTest() {
           <img
             src={imgIpadScreenshot}
             alt="MuukTest homepage shown on an iPad"
-            className="aspect-[372/467] w-full shrink-0 rounded-[15px] object-cover object-top sm:w-[280px]"
+            className="aspect-[1116/1080] w-full shrink-0 rounded-[15px] object-cover sm:w-[280px]"
           />
           <div className="flex flex-col gap-4">
             <p className="text-base text-[#0a0a0a]">
