@@ -15,7 +15,6 @@ import imgIllustration2 from './assets/figma/koronet-illustration-2.png';
 import imgIllustration3 from './assets/figma/koronet-illustration-3.png';
 import imgIllustration4 from './assets/figma/koronet-illustration-4.png';
 import imgPainPointsPhoto from './assets/figma/koronet-pain-points-photo.png';
-import imgPainPointsIphone from './assets/figma/koronet-pain-points-iphone.jpg';
 
 const SIDE_NAV = [
   { id: 'overview', label: 'Overview' },
@@ -173,16 +172,11 @@ export default function CaseStudyKoronet() {
         heading="Diagnosing a platform no one could read."
       >
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
-          <div className="flex shrink-0 gap-4 sm:w-[280px]">
+          <div className="shrink-0 sm:w-[280px]">
             <img
               src={imgPainPointsPhoto}
-              alt="Team reviewing the Koronet platform"
-              className="w-1/2 rounded-[16px] object-cover"
-            />
-            <img
-              src={imgPainPointsIphone}
-              alt="Koronet website shown on an iPhone"
-              className="w-1/2 rounded-[16px] object-cover"
+              alt="Koronet's old website homepage"
+              className="w-full rounded-[16px] object-cover"
             />
           </div>
           <div className="flex flex-col gap-4">
