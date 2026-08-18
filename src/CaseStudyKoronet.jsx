@@ -14,7 +14,7 @@ import imgIllustration1 from './assets/figma/koronet-illustration-1.png';
 import imgIllustration2 from './assets/figma/koronet-illustration-2.png';
 import imgIllustration3 from './assets/figma/koronet-illustration-3.png';
 import imgIllustration4 from './assets/figma/koronet-illustration-4.png';
-import imgPainPointsPhoto from './assets/figma/koronet-pain-points-photo.png';
+import imgPainPointsPhoto from './assets/figma/koronet-pain-points-photo.jpg';
 
 const SIDE_NAV = [
   { id: 'overview', label: 'Overview' },
@@ -175,7 +175,7 @@ export default function CaseStudyKoronet() {
           <div className="shrink-0 sm:w-[280px]">
             <img
               src={imgPainPointsPhoto}
-              alt="Koronet's old website homepage"
+              alt="Koronet's old website shown on an iPhone"
               className="w-full rounded-[16px] object-cover"
             />
           </div>
