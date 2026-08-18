@@ -2,6 +2,7 @@ import CaseStudyShell, { Eyebrow, Section, Divider } from './CaseStudyShell';
 import Reveal from './Reveal';
 import BrowserScrollVideo from './BrowserScrollVideo';
 import videoKoronetHome from './assets/figma/koronet-home-scroll.mp4';
+import imgMockupSolution from './assets/figma/koronet-mockup-solution.jpg';
 import imgMockupUserResearch from './assets/figma/koronet-mockup-user-research.png';
 import imgMockupArchitecture from './assets/figma/koronet-mockup-architecture.png';
 import imgMockupProcess1 from './assets/figma/koronet-mockup-process-1.png';
@@ -144,7 +145,11 @@ export default function CaseStudyKoronet() {
           visitor could find the right solution without having to understand the
           full platform first.
         </p>
-        <div className="aspect-[889/457] w-full rounded-[16px] border border-[rgba(20,20,20,0.14)]" />
+        <img
+          src={imgMockupSolution}
+          alt="Koronet homepage shown on a MacBook and iPhone"
+          className="aspect-[889/457] w-full rounded-[16px] border border-[rgba(20,20,20,0.14)] object-cover"
+        />
       </Section>
 
       <div id="impact" className="scroll-mt-24">
