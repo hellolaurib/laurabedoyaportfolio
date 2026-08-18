@@ -7,6 +7,7 @@ import imgMockupProcess2 from './assets/figma/muuktest-mockup-process-2.png';
 import imgMockupProcess3 from './assets/figma/muuktest-mockup-process-3.png';
 import imgMockupProcess4 from './assets/figma/muuktest-mockup-process-4.jpg';
 import imgMockupProcess5 from './assets/figma/muuktest-mockup-process-5.png';
+import imgMockupProcess6 from './assets/figma/muuktest-mockup-process-6.jpg';
 import imgMockupMobile from './assets/figma/muuktest-mockup-mobile.png';
 
 const SIDE_NAV = [
@@ -310,6 +311,11 @@ export default function CaseStudyMuukTest() {
             </li>
           ))}
         </ul>
+        <img
+          src={imgMockupProcess6}
+          alt="MuukTest homepage hero and stats section design exploration"
+          className="aspect-[2673/807] w-full rounded-[15px] object-cover"
+        />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <img src={imgMockupProcess4} alt="MuukTest startup landing page" className="aspect-[437/311] w-full rounded-[15px] object-cover" />
           <img src={imgMockupProcess5} alt="MuukTest pricing page" className="aspect-[437/311] w-full rounded-[15px] object-cover object-top" />
