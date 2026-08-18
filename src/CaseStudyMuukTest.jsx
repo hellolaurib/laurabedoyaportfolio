@@ -185,7 +185,7 @@ export default function CaseStudyMuukTest() {
           <img
             src={imgIpadScreenshot}
             alt="MuukTest homepage shown on an iPad"
-            className="aspect-[1116/1080] w-full shrink-0 rounded-[15px] object-cover sm:w-[280px]"
+            className="aspect-[1116/1080] w-full shrink-0 rounded-[15px] object-cover sm:w-[380px]"
           />
           <div className="flex flex-col gap-4">
             <p className="text-base text-[#0a0a0a]">
