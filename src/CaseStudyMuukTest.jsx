@@ -2,7 +2,6 @@ import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider } from './Cas
 import imgMockupSolution from './assets/figma/muuktest-mockup-solution.jpg';
 import imgIpadScreenshot from './assets/figma/muuktest-ipad-screenshot.jpg';
 import imgMockupArchitecture from './assets/figma/muuktest-mockup-architecture.jpg';
-import imgMockupProcess1 from './assets/figma/muuktest-mockup-process-1.jpg';
 import imgMockupProcess2 from './assets/figma/muuktest-mockup-process-2.png';
 import imgMockupProcess3 from './assets/figma/muuktest-mockup-process-3.png';
 import imgMockupProcess4 from './assets/figma/muuktest-mockup-process-4.jpg';
@@ -288,9 +287,9 @@ export default function CaseStudyMuukTest() {
           applied.
         </p>
         <img
-          src={imgMockupProcess1}
-          alt="MuukTest homepage wireframe"
-          className="aspect-[889/457] w-full rounded-[15px] object-cover object-top"
+          src={imgMockupProcess6}
+          alt="MuukTest homepage hero and stats section wireframe"
+          className="aspect-[2673/807] w-full rounded-[15px] object-cover"
         />
 
         <SectionHeading>From brandbook to bold direction.</SectionHeading>
@@ -311,11 +310,6 @@ export default function CaseStudyMuukTest() {
             </li>
           ))}
         </ul>
-        <img
-          src={imgMockupProcess6}
-          alt="MuukTest homepage hero and stats section design exploration"
-          className="aspect-[2673/807] w-full rounded-[15px] object-cover"
-        />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <img src={imgMockupProcess4} alt="MuukTest startup landing page" className="aspect-[437/311] w-full rounded-[15px] object-cover" />
           <img src={imgMockupProcess5} alt="MuukTest pricing page" className="aspect-[437/311] w-full rounded-[15px] object-cover object-top" />
