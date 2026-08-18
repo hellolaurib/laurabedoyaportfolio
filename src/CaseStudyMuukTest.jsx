@@ -3,7 +3,6 @@ import imgMockupSolution from './assets/figma/muuktest-mockup-solution.jpg';
 import imgIpadScreenshot from './assets/figma/muuktest-ipad-screenshot.jpg';
 import imgMockupArchitecture from './assets/figma/muuktest-mockup-architecture.jpg';
 import imgBrandbookDirectionGrid from './assets/figma/muuktest-brandbook-direction-grid.png';
-import imgMockupProcess4 from './assets/figma/muuktest-mockup-process-4.jpg';
 import imgMockupProcess5 from './assets/figma/muuktest-mockup-process-5.png';
 import imgMockupProcess6 from './assets/figma/muuktest-mockup-process-6.jpg';
 import imgMockupMobile from './assets/figma/muuktest-mockup-mobile.png';
@@ -310,10 +309,6 @@ export default function CaseStudyMuukTest() {
             </li>
           ))}
         </ul>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <img src={imgMockupProcess4} alt="MuukTest startup landing page" className="aspect-[437/311] w-full rounded-[15px] object-cover" />
-          <img src={imgMockupProcess5} alt="MuukTest pricing page" className="aspect-[437/311] w-full rounded-[15px] object-cover object-top" />
-        </div>
         <div className="flex flex-col gap-8">
           {DESIGN_DETAILS.map((detail) => (
             <div key={detail.title} className="flex flex-col items-center gap-8 sm:flex-row">
