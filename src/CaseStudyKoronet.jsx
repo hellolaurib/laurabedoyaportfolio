@@ -15,7 +15,7 @@ import imgIllustration2 from './assets/figma/koronet-illustration-2.png';
 import imgIllustration3 from './assets/figma/koronet-illustration-3.png';
 import imgIllustration4 from './assets/figma/koronet-illustration-4.png';
 import imgPainPointsPhoto from './assets/figma/koronet-pain-points-photo.png';
-import imgPainPointsIphone from './assets/figma/koronet-pain-points-iphone.png';
+import imgPainPointsIphone from './assets/figma/koronet-pain-points-iphone.jpg';
 
 const SIDE_NAV = [
   { id: 'overview', label: 'Overview' },
