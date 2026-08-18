@@ -6,9 +6,8 @@ import imgMockupSolution from './assets/figma/koronet-mockup-solution.jpg';
 import imgMockupUserResearch from './assets/figma/koronet-mockup-user-research.png';
 import imgMockupArchitecture from './assets/figma/koronet-mockup-architecture.png';
 import imgMockupProcess1 from './assets/figma/koronet-mockup-process-1.png';
-import imgMockupProcess2 from './assets/figma/koronet-mockup-process-2.png';
-import imgMockupProcess3 from './assets/figma/koronet-mockup-process-3.jpg';
 import imgMockupProcess4 from './assets/figma/koronet-mockup-process-4.jpg';
+import imgDesignProcessGrid from './assets/figma/koronet-design-process-grid.jpg';
 import imgMockupResponsive from './assets/figma/koronet-mockup-responsive.png';
 import imgIllustration1 from './assets/figma/koronet-illustration-1.png';
 import imgIllustration2 from './assets/figma/koronet-illustration-2.png';
@@ -304,14 +303,11 @@ export default function CaseStudyKoronet() {
           coherent with the brand identity. A new typography was proposed to
           reinforce the overall tone of the experience.
         </p>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <img src={imgMockupProcess2} alt="Design process exploration" className="w-full rounded-[10px]" />
-          <img src={imgMockupProcess3} alt="Design process exploration" className="w-full rounded-[10px]" />
-        </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <img src={imgMockupProcess4} alt="Design process exploration" className="w-full rounded-[10px]" />
-          <img src={imgMockupResponsive} alt="Design process exploration" className="w-full rounded-[10px]" />
-        </div>
+        <img
+          src={imgDesignProcessGrid}
+          alt="Koronet design system UI elements, color tokens, and homepage mockups"
+          className="w-full rounded-[10px]"
+        />
         <div className="flex flex-col gap-8">
           {DESIGN_DETAILS.map((detail) => (
             <div
