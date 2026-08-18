@@ -172,7 +172,7 @@ export default function CaseStudyUrbanEvolutions() {
           <img
             src={imgPainPointsPhoto}
             alt="Urban Evolutions homepage shown on a phone"
-            className="aspect-[198/425] w-full max-w-[160px] shrink-0 rounded-[15px] object-cover object-top"
+            className="aspect-[1116/1008] w-full max-w-[280px] shrink-0 rounded-[15px] object-cover"
           />
           <div className="flex flex-col gap-4">
             {PAIN_POINTS.map((point) => (
