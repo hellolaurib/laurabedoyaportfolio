@@ -38,6 +38,29 @@ export function Section({ id, eyebrow, heading, children }) {
   );
 }
 
+export function Meta({ meta }) {
+  return (
+    <Reveal as="div" className="grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
+      {meta.map((item) => (
+        <div key={item.label} className="flex flex-col gap-3">
+          <p className="text-xs font-light tracking-[2.4px] text-[#757575]">
+            {item.label}
+          </p>
+          {Array.isArray(item.value) ? (
+            <div className="flex flex-col text-base text-[#0a0a0a]">
+              {item.value.map((line) => (
+                <span key={line}>{line}</span>
+              ))}
+            </div>
+          ) : (
+            <p className="text-base text-[#0a0a0a]">{item.value}</p>
+          )}
+        </div>
+      ))}
+    </Reveal>
+  );
+}
+
 export function PromptCallout({ label, prompt }) {
   return (
     <div className="flex flex-col gap-1.5 rounded-xl border border-[#e0e0e0] bg-[#f0f0f0] px-6 py-5">
@@ -47,7 +70,7 @@ export function PromptCallout({ label, prompt }) {
   );
 }
 
-export default function CaseStudyShell({ caseStudyId, title, meta, sideNav, children }) {
+export default function CaseStudyShell({ caseStudyId, title, sideNav, children }) {
   const moreCaseStudies = CASE_STUDIES.filter((s) => s.id !== caseStudyId).slice(0, 2);
 
   return (
@@ -114,29 +137,11 @@ export default function CaseStudyShell({ caseStudyId, title, meta, sideNav, chil
 
           {/* Content */}
           <div className="flex flex-col gap-16 sm:gap-24 lg:min-w-0 lg:flex-1">
-            {/* Title + meta */}
-            <Reveal as="div" className="flex flex-col gap-10">
+            {/* Title */}
+            <Reveal as="div">
               <h1 className="max-w-3xl font-sans text-3xl leading-tight tracking-[-0.48px] text-[#141414] sm:text-[43px] sm:leading-[47px]">
                 {title}
               </h1>
-              <div className="grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
-                {meta.map((item) => (
-                  <div key={item.label} className="flex flex-col gap-3">
-                    <p className="text-xs font-light tracking-[2.4px] text-[#757575]">
-                      {item.label}
-                    </p>
-                    {Array.isArray(item.value) ? (
-                      <div className="flex flex-col text-base text-[#0a0a0a]">
-                        {item.value.map((line) => (
-                          <span key={line}>{line}</span>
-                        ))}
-                      </div>
-                    ) : (
-                      <p className="text-base text-[#0a0a0a]">{item.value}</p>
-                    )}
-                  </div>
-                ))}
-              </div>
             </Reveal>
 
             {children}

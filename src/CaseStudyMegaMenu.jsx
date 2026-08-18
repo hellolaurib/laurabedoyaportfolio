@@ -1,4 +1,4 @@
-import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider, PromptCallout } from './CaseStudyShell';
+import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider, PromptCallout, Meta } from './CaseStudyShell';
 import imgMockupSolution from './assets/figma/imehxs-mockup-solution.png';
 import imgPainPointsBanner from './assets/figma/imehxs-pain-points-banner.png';
 import imgMockupArchitecture1 from './assets/figma/imehxs-mockup-architecture-1.jpg';
@@ -58,10 +58,10 @@ export default function CaseStudyMegaMenu() {
     <CaseStudyShell
       caseStudyId="imehxs-mega-menu"
       title="A mega menu: built fast, built right."
-      meta={META}
       sideNav={SIDE_NAV}
     >
       {/* Overview / The challenge */}
+      <Meta meta={META} />
       <Section id="overview" eyebrow="THE CHALLENGE" heading="Built for one user. Used by many.">
         <p className="text-base text-[#0a0a0a]">
           The navigation no longer matched who was actually visiting. New user

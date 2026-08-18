@@ -1,4 +1,5 @@
-import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider } from './CaseStudyShell';
+import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider, Meta } from './CaseStudyShell';
+import Reveal from './Reveal';
 import imgMockupSolution from './assets/figma/muuktest-mockup-solution.jpg';
 import imgIpadScreenshot from './assets/figma/muuktest-ipad-screenshot.jpg';
 import imgMockupArchitecture from './assets/figma/muuktest-mockup-architecture.jpg';
@@ -117,12 +118,14 @@ export default function CaseStudyMuukTest() {
     <CaseStudyShell
       caseStudyId="muuktest"
       title="Redesigning for credibility: when a great product deserves a better site"
-      meta={META}
       sideNav={SIDE_NAV}
     >
       {/* Overview */}
-      <Section id="overview" eyebrow="OVERVIEW" heading="Great product. Wrong first impression.">
+      <Reveal as="div" id="overview" className="scroll-mt-24">
         <div className="aspect-[889/457] w-full rounded-[15px] border border-[rgba(20,20,20,0.14)]" />
+      </Reveal>
+      <Meta meta={META} />
+      <Section eyebrow="OVERVIEW" heading="Great product. Wrong first impression.">
         <p className="text-base text-[#0a0a0a]">
           Strong product, weak first impression. In a competitive tech space, visual
           credibility matters as much as the service itself. The challenge: build an

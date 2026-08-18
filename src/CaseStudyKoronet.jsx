@@ -1,4 +1,4 @@
-import CaseStudyShell, { Eyebrow, Section, Divider } from './CaseStudyShell';
+import CaseStudyShell, { Eyebrow, Section, Divider, Meta } from './CaseStudyShell';
 import Reveal from './Reveal';
 import BrowserScrollVideo from './BrowserScrollVideo';
 import videoKoronetHome from './assets/figma/koronet-home-scroll.mp4';
@@ -106,7 +106,6 @@ export default function CaseStudyKoronet() {
     <CaseStudyShell
       caseStudyId="koronet"
       title={"From complexity to conversion: Redesigning koronet's website"}
-      meta={META}
       sideNav={SIDE_NAV}
     >
       {/* Overview */}
@@ -117,6 +116,7 @@ export default function CaseStudyKoronet() {
           className="aspect-[889/457] w-full rounded-[16px] border border-[rgba(20,20,20,0.14)] object-cover"
         />
       </Reveal>
+      <Meta meta={META} />
       <Section eyebrow="OVERVIEW" heading="In the floral industry, complexity doesn't sell. Clarity does.">
         <p className="text-base text-[#0a0a0a]">
           Koronet unifies three floral industry platforms under one brand but their

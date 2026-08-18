@@ -1,4 +1,5 @@
-import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider } from './CaseStudyShell';
+import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider, Meta } from './CaseStudyShell';
+import Reveal from './Reveal';
 import imgProcess1 from './assets/figma/urban-mockup-process-1.png';
 import imgProcess2 from './assets/figma/urban-mockup-process-2.png';
 import imgProcess3 from './assets/figma/urban-mockup-process-3.jpg';
@@ -103,12 +104,14 @@ export default function CaseStudyUrbanEvolutions() {
     <CaseStudyShell
       caseStudyId="reclaimed-wood"
       title="Structure sets the stage. Design steals the show."
-      meta={META}
       sideNav={SIDE_NAV}
     >
       {/* Overview */}
-      <Section id="overview" eyebrow="OVERVIEW" heading="When the catalog is the product.">
+      <Reveal as="div" id="overview" className="scroll-mt-24">
         <div className="aspect-[889/457] w-full rounded-[15px] border border-[rgba(20,20,20,0.14)]" />
+      </Reveal>
+      <Meta meta={META} />
+      <Section eyebrow="OVERVIEW" heading="When the catalog is the product.">
         <p className="text-base text-[#0a0a0a]">
           Redesign of the Urban Evolutions website, focused on improving the user
           experience for a company with over 28 years of expertise in reclaimed
