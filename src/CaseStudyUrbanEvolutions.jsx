@@ -3,7 +3,7 @@ import imgProcess1 from './assets/figma/urban-mockup-process-1.png';
 import imgProcess2 from './assets/figma/urban-mockup-process-2.png';
 import imgProcess3 from './assets/figma/urban-mockup-process-3.jpg';
 import imgProcess4 from './assets/figma/urban-mockup-process-4.jpg';
-import imgContactForm from './assets/figma/urban-mockup-contact-form.jpg';
+import imgContactForm from './assets/figma/urban-mockup-contact-form.png';
 import imgMobile from './assets/figma/urban-mockup-mobile.jpg';
 import imgPainPointsPhoto from './assets/figma/urban-pain-points-photo.png';
 
