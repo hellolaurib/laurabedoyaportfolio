@@ -2,8 +2,7 @@ import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider } from './Cas
 import imgMockupSolution from './assets/figma/muuktest-mockup-solution.jpg';
 import imgIpadScreenshot from './assets/figma/muuktest-ipad-screenshot.jpg';
 import imgMockupArchitecture from './assets/figma/muuktest-mockup-architecture.jpg';
-import imgMockupProcess2 from './assets/figma/muuktest-mockup-process-2.png';
-import imgMockupProcess3 from './assets/figma/muuktest-mockup-process-3.png';
+import imgBrandbookDirectionGrid from './assets/figma/muuktest-brandbook-direction-grid.png';
 import imgMockupProcess4 from './assets/figma/muuktest-mockup-process-4.jpg';
 import imgMockupProcess5 from './assets/figma/muuktest-mockup-process-5.png';
 import imgMockupProcess6 from './assets/figma/muuktest-mockup-process-6.jpg';
@@ -299,10 +298,11 @@ export default function CaseStudyMuukTest() {
           transforming limited brand assets into a modern, competitive aesthetic
           that could stand alongside the industry&apos;s best.
         </p>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <img src={imgMockupProcess2} alt="MuukTest design system: colors, typography, buttons" className="aspect-[437/311] w-full rounded-[15px] object-cover object-top" />
-          <img src={imgMockupProcess3} alt="MuukTest regression testing landing page" className="aspect-[437/311] w-full rounded-[15px] object-cover object-top" />
-        </div>
+        <img
+          src={imgBrandbookDirectionGrid}
+          alt="MuukTest design system colors, typography, key benefits, and landing page mockups"
+          className="aspect-[891/574] w-full rounded-[15px] object-cover"
+        />
         <ul className="flex flex-col gap-3">
           {VISUAL_DIRECTION_POINTS.map((point) => (
             <li key={point.lead} className="text-base text-[#0a0a0a]">
