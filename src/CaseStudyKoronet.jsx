@@ -172,7 +172,7 @@ export default function CaseStudyKoronet() {
         heading="Diagnosing a platform no one could read."
       >
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
-          <div className="shrink-0 sm:w-[280px]">
+          <div className="shrink-0 sm:w-[380px]">
             <img
               src={imgPainPointsPhoto}
               alt="Koronet's old website shown on an iPhone"
