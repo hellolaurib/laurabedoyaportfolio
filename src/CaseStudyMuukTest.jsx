@@ -3,7 +3,7 @@ import imgMockupSolution from './assets/figma/muuktest-mockup-solution.jpg';
 import imgIpadScreenshot from './assets/figma/muuktest-ipad-screenshot.jpg';
 import imgMockupArchitecture from './assets/figma/muuktest-mockup-architecture.jpg';
 import imgBrandbookDirectionGrid from './assets/figma/muuktest-brandbook-direction-grid.png';
-import imgMockupProcess5 from './assets/figma/muuktest-mockup-process-5.png';
+import imgMockupDemoForm from './assets/figma/muuktest-mockup-demo-form.png';
 import imgMockupProcess6 from './assets/figma/muuktest-mockup-process-6.jpg';
 import imgMockupMobile from './assets/figma/muuktest-mockup-mobile.png';
 
@@ -98,7 +98,7 @@ const DESIGN_DETAILS = [
   {
     title: 'Demo form strategy',
     body: 'Through competitor analysis, we discovered that every major player in the space led with a demo request form as the primary entry point. This insight drove a key strategic decision: we made the demo form the central conversion element of the site, placing it prominently and reducing friction in the sign-up flow. The result was a direct increase in scheduled demos from launch.',
-    image: imgMockupProcess5,
+    image: imgMockupDemoForm,
   },
   {
     title: 'Micro-interactions',
