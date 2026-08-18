@@ -336,22 +336,22 @@ export default function CaseStudyKoronet() {
           <img
             src={imgIllustration1}
             alt="Koronet illustration exploration"
-            className="h-[130px] w-[92px] rounded-lg object-cover"
+            className="h-[170px] w-[120px] rounded-lg object-cover"
           />
           <img
             src={imgIllustration2}
             alt="Koronet illustration exploration"
-            className="h-[130px] w-[150px] rounded-lg object-cover"
+            className="h-[170px] w-[195px] rounded-lg object-cover"
           />
           <img
             src={imgIllustration3}
             alt="Koronet illustration exploration"
-            className="h-[130px] w-[150px] rounded-lg object-cover"
+            className="h-[170px] w-[195px] rounded-lg object-cover"
           />
           <img
             src={imgIllustration4}
             alt="Koronet illustration exploration"
-            className="h-[130px] w-[150px] rounded-lg object-cover"
+            className="h-[170px] w-[195px] rounded-lg object-cover"
           />
         </div>
       </Section>
