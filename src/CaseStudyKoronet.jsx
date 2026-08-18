@@ -111,7 +111,11 @@ export default function CaseStudyKoronet() {
     >
       {/* Overview */}
       <Reveal as="div" id="overview" className="scroll-mt-24">
-        <BrowserScrollVideo src={videoKoronetHome} url="koronet.com" />
+        <img
+          src={imgMockupSolution}
+          alt="Koronet homepage shown on a MacBook and iPhone"
+          className="aspect-[889/457] w-full rounded-[16px] border border-[rgba(20,20,20,0.14)] object-cover"
+        />
       </Reveal>
       <Section eyebrow="OVERVIEW" heading="In the floral industry, complexity doesn't sell. Clarity does.">
         <p className="text-base text-[#0a0a0a]">
@@ -143,11 +147,7 @@ export default function CaseStudyKoronet() {
           visitor could find the right solution without having to understand the
           full platform first.
         </p>
-        <img
-          src={imgMockupSolution}
-          alt="Koronet homepage shown on a MacBook and iPhone"
-          className="aspect-[889/457] w-full rounded-[16px] border border-[rgba(20,20,20,0.14)] object-cover"
-        />
+        <BrowserScrollVideo src={videoKoronetHome} url="koronet.com" />
       </Section>
 
       <div id="impact" className="scroll-mt-24">
