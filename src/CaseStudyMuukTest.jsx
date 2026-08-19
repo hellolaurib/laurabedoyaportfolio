@@ -1,5 +1,6 @@
 import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider, Meta } from './CaseStudyShell';
 import Reveal from './Reveal';
+import AnimatedStat from './AnimatedStat';
 import BrowserScrollVideo from './BrowserScrollVideo';
 import videoMuuktestHome from './assets/figma/muuktest-home-scroll.mp4';
 import imgIpadScreenshot from './assets/figma/muuktest-ipad-screenshot.jpg';
@@ -164,7 +165,7 @@ export default function CaseStudyMuukTest() {
         <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-3">
           {IMPACT_STATS.map((stat) => (
             <div key={stat.label} className="flex flex-col gap-2">
-              <p className="text-3xl text-black">{stat.value}</p>
+              <p className="text-3xl text-black"><AnimatedStat value={stat.value} /></p>
               <p className="text-base text-[#858585]">{stat.label}</p>
             </div>
           ))}

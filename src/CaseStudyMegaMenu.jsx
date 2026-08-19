@@ -1,5 +1,6 @@
 import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider, PromptCallout, Meta } from './CaseStudyShell';
 import BrowserScrollVideo from './BrowserScrollVideo';
+import AnimatedStat from './AnimatedStat';
 import videoImexhsHome from './assets/figma/imexhs-home-scroll.mp4';
 import imgPainPointsBanner from './assets/figma/imehxs-pain-points-banner.png';
 import imgMockupArchitecture1 from './assets/figma/imehxs-mockup-architecture-1.jpg';
@@ -105,7 +106,7 @@ export default function CaseStudyMegaMenu() {
         <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-3">
           {IMPACT_STATS.map((stat) => (
             <div key={stat.label} className="flex flex-col gap-2">
-              <p className="text-3xl text-black">{stat.value}</p>
+              <p className="text-3xl text-black"><AnimatedStat value={stat.value} /></p>
               <p className="text-base text-[#858585]">{stat.label}</p>
             </div>
           ))}
