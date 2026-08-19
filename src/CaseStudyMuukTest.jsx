@@ -1,6 +1,7 @@
 import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider, Meta } from './CaseStudyShell';
 import Reveal from './Reveal';
-import imgMockupSolution from './assets/figma/muuktest-mockup-solution.jpg';
+import BrowserScrollVideo from './BrowserScrollVideo';
+import videoMuuktestHome from './assets/figma/muuktest-home-scroll.mp4';
 import imgIpadScreenshot from './assets/figma/muuktest-ipad-screenshot.jpg';
 import imgMockupArchitecture from './assets/figma/muuktest-mockup-architecture.jpg';
 import imgBrandbookDirectionGrid from './assets/figma/muuktest-brandbook-direction-grid.png';
@@ -155,11 +156,7 @@ export default function CaseStudyMuukTest() {
           into a step-by-step experience, guiding users through complexity without
           losing them along the way.
         </p>
-        <img
-          src={imgMockupSolution}
-          alt="MuukTest website shown on a MacBook and iPhone"
-          className="w-full rounded-[15px]"
-        />
+        <BrowserScrollVideo src={videoMuuktestHome} url="muuktest.com" />
       </Section>
 
       <div id="impact" className="scroll-mt-24">

@@ -1,5 +1,6 @@
 import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider, PromptCallout, Meta } from './CaseStudyShell';
-import imgMockupSolution from './assets/figma/imehxs-mockup-solution.png';
+import BrowserScrollVideo from './BrowserScrollVideo';
+import videoImexhsHome from './assets/figma/imexhs-home-scroll.mp4';
 import imgPainPointsBanner from './assets/figma/imehxs-pain-points-banner.png';
 import imgMockupArchitecture1 from './assets/figma/imehxs-mockup-architecture-1.jpg';
 import imgMockupArchitecture2 from './assets/figma/imehxs-mockup-architecture-2.jpg';
@@ -96,11 +97,7 @@ export default function CaseStudyMegaMenu() {
           — accelerating research synthesis and design iteration without cutting
           corners on quality.
         </p>
-        <img
-          src={imgMockupSolution}
-          alt="IMEHXS solutions page shown on a MacBook"
-          className="w-full rounded-[16px]"
-        />
+        <BrowserScrollVideo src={videoImexhsHome} url="imexhs.com" />
       </Section>
 
       <div id="impact" className="scroll-mt-24">

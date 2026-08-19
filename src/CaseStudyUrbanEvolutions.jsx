@@ -1,5 +1,7 @@
 import CaseStudyShell, { Eyebrow, SectionHeading, Section, Divider, Meta } from './CaseStudyShell';
 import Reveal from './Reveal';
+import BrowserScrollVideo from './BrowserScrollVideo';
+import videoUrbanHome from './assets/figma/urban-home-scroll.mp4';
 import imgProcess1 from './assets/figma/urban-mockup-process-1.png';
 import imgProcess2 from './assets/figma/urban-mockup-process-2.png';
 import imgProcess3 from './assets/figma/urban-mockup-process-3.jpg';
@@ -148,7 +150,7 @@ export default function CaseStudyUrbanEvolutions() {
           while maintaining the premium feel the brand demands. Structure and
           aesthetics working together, not against each other.
         </p>
-        <div className="aspect-[889/434] w-full rounded-[15px] border border-[rgba(20,20,20,0.14)]" />
+        <BrowserScrollVideo src={videoUrbanHome} url="urbanevolutions.com" />
       </Section>
 
       <div id="impact" className="scroll-mt-24">
