@@ -34,7 +34,7 @@ import imgInterface10 from './assets/figma/select-interface-10.jpg';
 import imgInterface11 from './assets/figma/select-interface-11.jpg';
 import imgInterface12 from './assets/figma/select-interface-12.jpg';
 
-const NAV_LINKS = ['About', 'Resume', 'LinkedIn', 'Dribble', 'Graphic Design'];
+const NAV_LINKS = ['About', 'Graphic Design', 'Resume', 'LinkedIn', 'Dribble'];
 const COMING_SOON_LINKS = ['Dribble', 'Graphic Design'];
 const RESUME_URL = '/Laura_Bedoya_CV.pdf';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/laurablondono/';
