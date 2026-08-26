@@ -34,7 +34,8 @@ import imgInterface10 from './assets/figma/select-interface-10.jpg';
 import imgInterface11 from './assets/figma/select-interface-11.jpg';
 import imgInterface12 from './assets/figma/select-interface-12.jpg';
 
-const NAV_LINKS = ['About', 'Resume', 'LinkedIn', 'Dribble'];
+const NAV_LINKS = ['About', 'Resume', 'LinkedIn', 'Dribble', 'Graphic Design'];
+const COMING_SOON_LINKS = ['Dribble', 'Graphic Design'];
 const RESUME_URL = '/Laura_Bedoya_CV.pdf';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/laurablondono/';
 const CONTACT_EMAIL = 'laura.bedoyalon@gmail.com';
@@ -277,7 +278,7 @@ export default function Home() {
             {NAV_LINKS.map((link) => {
               const isResume = link === 'Resume';
               const isLinkedIn = link === 'LinkedIn';
-              const isDribble = link === 'Dribble';
+              const isComingSoon = COMING_SOON_LINKS.includes(link);
               const href = isResume ? RESUME_URL : isLinkedIn ? LINKEDIN_URL : '#';
               const external = isResume || isLinkedIn;
               return (
@@ -286,11 +287,11 @@ export default function Home() {
                   href={href}
                   target={external ? '_blank' : undefined}
                   rel={external ? 'noopener noreferrer' : undefined}
-                  onClick={isDribble ? (e) => e.preventDefault() : undefined}
-                  className={`group/nav relative rounded-full px-4 py-2 transition-colors duration-300 ease-out hover:bg-[rgba(20,20,20,0.06)] ${isDribble ? 'cursor-default' : 'cursor-pointer'}`}
+                  onClick={isComingSoon ? (e) => e.preventDefault() : undefined}
+                  className={`group/nav relative rounded-full px-4 py-2 transition-colors duration-300 ease-out hover:bg-[rgba(20,20,20,0.06)] ${isComingSoon ? 'cursor-default' : 'cursor-pointer'}`}
                 >
                   {link}
-                  {isDribble && (
+                  {isComingSoon && (
                     <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#e38484] px-4 py-1.5 text-[11px] font-light text-white opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100">
                       Coming soon ✦
                     </span>
