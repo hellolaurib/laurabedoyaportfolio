@@ -2,6 +2,7 @@ import imgMacbookMockup1 from './assets/figma/macbook-mockup-1.png';
 import imgMacbookMockup2 from './assets/figma/macbook-mockup-2.png';
 import imgMacbookMockup3 from './assets/figma/macbook-mockup-3.png';
 import imgMacbookMockup4 from './assets/figma/macbook-mockup-4.png';
+import imgKarbikMockup from './assets/figma/karbik-studio-mockup.png';
 
 export const CASE_STUDIES = [
   {
@@ -32,6 +33,21 @@ export const CASE_STUDIES = [
     imageAlt: 'IMEHXS mega menu shown on a MacBook',
     to: '/case-studies/imehxs-mega-menu',
     tags: ['Navigation Design', 'AI-Assisted UX'],
+  },
+  {
+    id: 'karbik',
+    heading: (
+      <>
+        Rethinking fashion for <em>the digital era</em>
+      </>
+    ),
+    description:
+      'How understanding the new digital consumer transformed a fashion brand’s online experience and drove a 50% increase in sales.',
+    image: imgKarbikMockup,
+    imageAlt: 'Karbik fashion e-commerce site shown on a Studio Display',
+    to: '/case-studies/karbik',
+    tags: ['Ecommerce', 'Shopify'],
+    comingSoon: true,
   },
   {
     id: 'muuktest',

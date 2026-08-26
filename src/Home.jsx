@@ -125,7 +125,7 @@ function PillButton({ children, icon, href = '#', target, rel, onClick }) {
   );
 }
 
-function CaseStudy({ heading, description, image, imageAlt, tags, to = '#', delay = 0 }) {
+function CaseStudy({ heading, description, image, imageAlt, tags, to = '#', delay = 0, comingSoon = false }) {
   return (
     <Reveal
       as="section"
@@ -151,15 +151,27 @@ function CaseStudy({ heading, description, image, imageAlt, tags, to = '#', dela
         <p className="text-sm leading-relaxed font-light text-[#6b6b6b] sm:text-base">
           {description}
         </p>
-        <Link
-          to={to}
-          className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#141414] to-[rgba(20,20,20,0.9)] py-2.5 pl-5 pr-2.5 text-[11px] font-light text-[#fafafa] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] transition-transform duration-300 ease-out hover:scale-[1.03]"
-        >
-          Open case study
-          <span className="flex size-5 items-center justify-center rounded-full bg-[rgba(250,250,250,0.15)]">
-            <img src={imgIconArrowUpRight} alt="" className="size-3" />
+        {comingSoon ? (
+          <span className="group/cta relative inline-flex cursor-default items-center gap-3 rounded-full bg-gradient-to-r from-[#141414] to-[rgba(20,20,20,0.9)] py-2.5 pl-5 pr-2.5 text-[11px] font-light text-[#fafafa] shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
+            Open case study
+            <span className="flex size-5 items-center justify-center rounded-full bg-[rgba(250,250,250,0.15)]">
+              <img src={imgIconArrowUpRight} alt="" className="size-3" />
+            </span>
+            <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#e38484] px-4 py-1.5 text-[11px] font-light text-white opacity-0 transition-opacity duration-200 group-hover/cta:opacity-100">
+              Under construction ✦
+            </span>
           </span>
-        </Link>
+        ) : (
+          <Link
+            to={to}
+            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#141414] to-[rgba(20,20,20,0.9)] py-2.5 pl-5 pr-2.5 text-[11px] font-light text-[#fafafa] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] transition-transform duration-300 ease-out hover:scale-[1.03]"
+          >
+            Open case study
+            <span className="flex size-5 items-center justify-center rounded-full bg-[rgba(250,250,250,0.15)]">
+              <img src={imgIconArrowUpRight} alt="" className="size-3" />
+            </span>
+          </Link>
+        )}
       </div>
       <div className="w-full overflow-hidden rounded-[16px] lg:w-3/5">
         <img
