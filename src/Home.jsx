@@ -274,7 +274,7 @@ export default function Home() {
               Laura Bedoya
             </span>
           </a>
-          <nav className="flex flex-wrap items-center gap-1 rounded-full border border-[rgba(224,224,224,0.6)] bg-[rgba(255,255,255,0.85)] px-2 py-2 text-sm font-light text-[rgba(20,20,20,0.8)] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] backdrop-blur-[6px]">
+          <nav className="flex flex-nowrap items-center gap-1 overflow-x-auto rounded-full border border-[rgba(224,224,224,0.6)] bg-[rgba(255,255,255,0.85)] px-2 py-2 text-sm font-light text-[rgba(20,20,20,0.8)] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] backdrop-blur-[6px] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {NAV_LINKS.map((link) => {
               const isResume = link === 'Resume';
               const isLinkedIn = link === 'LinkedIn';
@@ -288,7 +288,7 @@ export default function Home() {
                   target={external ? '_blank' : undefined}
                   rel={external ? 'noopener noreferrer' : undefined}
                   onClick={isComingSoon ? (e) => e.preventDefault() : undefined}
-                  className={`group/nav relative rounded-full px-4 py-2 transition-colors duration-300 ease-out hover:bg-[rgba(20,20,20,0.06)] ${isComingSoon ? 'cursor-default' : 'cursor-pointer'}`}
+                  className={`group/nav relative shrink-0 whitespace-nowrap rounded-full px-4 py-2 transition-colors duration-300 ease-out hover:bg-[rgba(20,20,20,0.06)] ${isComingSoon ? 'cursor-default' : 'cursor-pointer'}`}
                 >
                   {link}
                   {isComingSoon && (
