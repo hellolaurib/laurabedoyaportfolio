@@ -179,19 +179,20 @@ export default function VisualDesigner() {
               I&apos;m a visual designer with 4+ years of experience in graphic
               and visual design. I&apos;ve led <em>creative direction</em> for
               brands across social media, email, and marketing, shaping their
-              visual identity and content. I love turning ideas into cohesive
-              visuals, and I love shaping ideas into cohesive, eye-catching
-              visuals, and I&apos;m always exploring new tools, AI included, to
-              keep growing as a designer.
+              visual identity and content. I love shaping ideas into cohesive,
+              eye-catching visuals, and I&apos;m always exploring new tools, AI
+              included, to keep growing as a designer.
             </h1>
             <SkillPills />
           </div>
         </Reveal>
 
-        {/* Brands — full-bleed, stacked edge to edge */}
+        {/* Brands — full-bleed; each one pins at the top and the next slides up over it */}
         <section className="relative left-1/2 flex w-screen -translate-x-1/2 flex-col">
-          {BRANDS.map((brand) => (
-            <BrandBanner key={brand.name} {...brand} />
+          {BRANDS.map((brand, i) => (
+            <div key={brand.name} className="sticky top-0" style={{ zIndex: i + 1 }}>
+              <BrandBanner {...brand} />
+            </div>
           ))}
         </section>
 
