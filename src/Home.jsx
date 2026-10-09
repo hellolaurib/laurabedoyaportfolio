@@ -34,8 +34,8 @@ import imgInterface10 from './assets/figma/select-interface-10.jpg';
 import imgInterface11 from './assets/figma/select-interface-11.jpg';
 import imgInterface12 from './assets/figma/select-interface-12.jpg';
 
-const NAV_LINKS = ['About', 'Graphic Design', 'Resume', 'LinkedIn'];
-const COMING_SOON_LINKS = ['Graphic Design'];
+const NAV_LINKS = ['About', 'Visual Designer', 'Resume', 'LinkedIn'];
+const COMING_SOON_LINKS = [];
 const RESUME_URL = '/Laura_Bedoya_CV.pdf';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/laurablondono/';
 const CONTACT_EMAIL = 'laura.bedoyalon@gmail.com';
@@ -281,6 +281,17 @@ export default function Home() {
               const isComingSoon = COMING_SOON_LINKS.includes(link);
               const href = isResume ? RESUME_URL : isLinkedIn ? LINKEDIN_URL : '#';
               const external = isResume || isLinkedIn;
+              if (link === 'Visual Designer') {
+                return (
+                  <Link
+                    key={link}
+                    to="/visual-design"
+                    className="relative shrink-0 cursor-pointer whitespace-nowrap rounded-full px-4 py-2 transition-colors duration-300 ease-out hover:bg-[rgba(20,20,20,0.06)]"
+                  >
+                    {link}
+                  </Link>
+                );
+              }
               return (
                 <a
                   key={link}

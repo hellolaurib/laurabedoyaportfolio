@@ -72,10 +72,11 @@ export function PromptCallout({ label, prompt }) {
 
 export default function CaseStudyShell({ caseStudyId, title, sideNav, children }) {
   const moreCaseStudies = CASE_STUDIES.filter((s) => s.id !== caseStudyId).slice(0, 2);
+  const hasSideNav = Boolean(sideNav && sideNav.length);
 
   return (
     <motion.div
-      className="relative bg-white text-[#141414]"
+      className="relative overflow-x-clip bg-white text-[#141414]"
       initial={pageTransition.initial}
       animate={pageTransition.animate}
       exit={pageTransition.exit}
@@ -113,27 +114,29 @@ export default function CaseStudyShell({ caseStudyId, title, sideNav, children }
           </nav>
         </header>
 
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
+        <div className={`flex flex-col gap-12 ${hasSideNav ? 'lg:flex-row lg:items-start lg:gap-16' : ''}`}>
           {/* Side nav */}
-          <aside className="flex flex-col gap-8 lg:sticky lg:top-12 lg:w-[124px] lg:shrink-0">
-            <Link
-              to="/"
-              className="text-base text-[#858585] transition-colors duration-300 ease-out hover:text-[#141414]"
-            >
-              {'<- Back'}
-            </Link>
-            <nav className="flex flex-row flex-wrap gap-x-5 gap-y-3 text-base text-[#858585] lg:flex-col lg:gap-[14px]">
-              {sideNav.map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  className="text-left transition-colors duration-300 ease-out hover:text-[#141414]"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          </aside>
+          {hasSideNav && (
+            <aside className="flex flex-col gap-8 lg:sticky lg:top-12 lg:w-[124px] lg:shrink-0">
+              <Link
+                to="/"
+                className="text-base text-[#858585] transition-colors duration-300 ease-out hover:text-[#141414]"
+              >
+                {'<- Back'}
+              </Link>
+              <nav className="flex flex-row flex-wrap gap-x-5 gap-y-3 text-base text-[#858585] lg:flex-col lg:gap-[14px]">
+                {sideNav.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="text-left transition-colors duration-300 ease-out hover:text-[#141414]"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+            </aside>
+          )}
 
           {/* Content */}
           <div className="flex flex-col gap-16 sm:gap-24 lg:min-w-0 lg:flex-1">

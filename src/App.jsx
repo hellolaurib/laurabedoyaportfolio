@@ -5,6 +5,8 @@ import CaseStudyKoronet from './CaseStudyKoronet';
 import CaseStudyMegaMenu from './CaseStudyMegaMenu';
 import CaseStudyMuukTest from './CaseStudyMuukTest';
 import CaseStudyUrbanEvolutions from './CaseStudyUrbanEvolutions';
+import CaseStudyBarrio from './CaseStudyBarrio';
+import VisualDesigner from './VisualDesigner';
 
 function App() {
   const location = useLocation();
@@ -16,6 +18,8 @@ function App() {
         <Route path="/case-studies/imehxs-mega-menu" element={<CaseStudyMegaMenu />} />
         <Route path="/case-studies/muuktest" element={<CaseStudyMuukTest />} />
         <Route path="/case-studies/reclaimed-wood" element={<CaseStudyUrbanEvolutions />} />
+        <Route path="/visual-design" element={<VisualDesigner />} />
+        <Route path="/visual-design/barrio" element={<CaseStudyBarrio />} />
       </Routes>
     </AnimatePresence>
   );
