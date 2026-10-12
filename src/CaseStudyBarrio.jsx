@@ -1,5 +1,6 @@
 import CaseStudyShell, { Meta } from './CaseStudyShell';
 import Reveal from './Reveal';
+import StackPanel from './StackPanel';
 import imgHero from './assets/figma/barrio-hero.jpg';
 import imgPhoneMockup from './assets/figma/barrio-phone-mockup.jpg';
 import imgCampaign1 from './assets/figma/barrio-campaign-1.jpg';
@@ -18,24 +19,6 @@ const META = [
   { label: 'TEAM', value: ['Community Manager', 'Videographer', 'Photographer'] },
   { label: 'SKILLS', value: ['Social Media', 'Packaging', 'Merchandising', 'Paid Media'] },
 ];
-
-// One full-viewport panel that pins in place and gets covered by the next
-// panel sliding up over it — a stacked-cards scroll effect. `first` skips
-// the overlap pull so the stack starts flush after the page content above it.
-function StackPanel({ children, index, first = false }) {
-  return (
-    <div
-      className={`relative h-[200vh] ${first ? '' : '-mt-[100vh]'}`}
-      style={{ zIndex: index }}
-    >
-      <div className="sticky top-0 h-screen">
-        <div className="relative left-1/2 h-full w-screen -translate-x-1/2 overflow-hidden bg-white">
-          {children}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 const PANELS = [
   { key: 'hero', node: <img src={imgHero} alt="Barrio Burger key visual" className="size-full object-cover" /> },

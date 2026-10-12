@@ -49,6 +49,7 @@ const BRANDS = [
   },
   {
     name: 'Sheva',
+    to: '/visual-design/sheva',
     bg: imgShevaBg,
     imgClassName: 'h-[306.08%] w-full left-0 top-[-68.65%]',
     logo: <img src={imgShevaLogo} alt="Sheva" className="w-full" />,

@@ -6,6 +6,7 @@ import CaseStudyMegaMenu from './CaseStudyMegaMenu';
 import CaseStudyMuukTest from './CaseStudyMuukTest';
 import CaseStudyUrbanEvolutions from './CaseStudyUrbanEvolutions';
 import CaseStudyBarrio from './CaseStudyBarrio';
+import CaseStudySheva from './CaseStudySheva';
 import VisualDesigner from './VisualDesigner';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/case-studies/reclaimed-wood" element={<CaseStudyUrbanEvolutions />} />
         <Route path="/visual-design" element={<VisualDesigner />} />
         <Route path="/visual-design/barrio" element={<CaseStudyBarrio />} />
+        <Route path="/visual-design/sheva" element={<CaseStudySheva />} />
       </Routes>
     </AnimatePresence>
   );
