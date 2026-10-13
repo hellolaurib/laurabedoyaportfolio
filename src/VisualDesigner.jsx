@@ -16,7 +16,7 @@ import imgClaudiaMonogram from './assets/figma/vd-claudia-monogram.svg';
 import imgClaudiaWordLeft from './assets/figma/vd-claudia-word-left.svg';
 import imgClaudiaWordRight from './assets/figma/vd-claudia-word-right.svg';
 
-const NAV_LINKS = ['About', 'Visual Designer', 'Resume', 'LinkedIn'];
+const NAV_LINKS = ['Visual Designer', 'Resume', 'LinkedIn'];
 const RESUME_URL = '/Laura_Bedoya_CV.pdf';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/laurablondono/';
 const CONTACT_EMAIL = 'laura.bedoyalon@gmail.com';
@@ -159,7 +159,6 @@ export default function VisualDesigner() {
           <nav className="flex flex-nowrap items-center gap-1 overflow-x-auto rounded-full border border-[rgba(224,224,224,0.6)] bg-[rgba(255,255,255,0.85)] px-2 py-2 text-sm font-light text-[rgba(20,20,20,0.8)] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] backdrop-blur-[6px] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {NAV_LINKS.map((link) => {
               const linkClass = `shrink-0 whitespace-nowrap rounded-full px-4 py-2 transition-colors duration-300 ease-out hover:bg-[rgba(20,20,20,0.06)] ${link === 'Visual Designer' ? 'bg-[rgba(20,20,20,0.06)] text-[#141414]' : ''}`;
-              if (link === 'About') return <Link key={link} to="/" className={linkClass}>{link}</Link>;
               if (link === 'Visual Designer') return <Link key={link} to="/visual-design" className={linkClass} aria-current="page">{link}</Link>;
               const href = link === 'Resume' ? RESUME_URL : LINKEDIN_URL;
               return (
