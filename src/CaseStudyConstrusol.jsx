@@ -18,7 +18,7 @@ import imgBrochure from './assets/figma/construsol-brochure.jpg';
 const META = [
   { label: 'ROLE', value: 'Visual Designer' },
   { label: 'YEAR', value: '2025' },
-  { label: 'SKILLS', value: ['Social Media', 'Banners', 'Books', 'Notebooks', 'Corporate Merchandising', 'Paid Ads'] },
+  { label: 'SKILLS', value: ['Social Media', 'Banners', 'Brochures', 'Performance Presentations', 'Corporate Merchandising', 'Paid Ads'] },
 ];
 
 // The hero photo is a zoomed crop in Figma (same as the Visual Designer
