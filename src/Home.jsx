@@ -111,17 +111,19 @@ function InterfaceCard({ src, alt, href, inProcess }) {
   );
 }
 
-function PillButton({ children, icon, href = '#', target, rel, onClick }) {
-  return (
-    <a
-      href={href}
-      target={target}
-      rel={rel}
-      onClick={onClick}
-      className="inline-flex items-center gap-2 rounded-full border border-[rgba(20,20,20,0.2)] bg-white px-5 py-2.5 text-xs font-light text-[#141414] shadow-[0px_1px_1px_rgba(0,0,0,0.05)] transition-colors duration-300 ease-out hover:bg-[#141414] hover:text-white sm:text-sm"
-    >
+// `to` makes it an in-app route link; otherwise it's a plain anchor.
+function PillButton({ children, icon, href = '#', to, target, rel, onClick }) {
+  const className = 'inline-flex items-center gap-2 rounded-full border border-[rgba(20,20,20,0.2)] bg-white px-5 py-2.5 text-xs font-light text-[#141414] shadow-[0px_1px_1px_rgba(0,0,0,0.05)] transition-colors duration-300 ease-out hover:bg-[#141414] hover:text-white sm:text-sm';
+  const content = (
+    <>
       {children}
       {icon && <img src={icon} alt="" className="size-3.5" />}
+    </>
+  );
+  if (to) return <Link to={to} className={className}>{content}</Link>;
+  return (
+    <a href={href} target={target} rel={rel} onClick={onClick} className={className}>
+      {content}
     </a>
   );
 }
@@ -335,7 +337,7 @@ export default function Home() {
             <PillButton icon={imgIconMessage} onClick={handleExperienceClick}>
               experience
             </PillButton>
-            <PillButton icon={imgIconMessage}>graphic design</PillButton>
+            <PillButton icon={imgIconMessage} to="/visual-design">visual designer</PillButton>
             <PillButton icon={imgIconMessage} href={RESUME_URL} target="_blank" rel="noopener noreferrer">
               resume
             </PillButton>
