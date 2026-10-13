@@ -57,6 +57,7 @@ const BRANDS = [
   },
   {
     name: 'Construsol',
+    to: '/visual-design/construsol',
     bg: imgConstrusolBg,
     imgClassName: 'h-[192.64%] w-[168.43%] left-[-8.33%] top-[-27.79%]',
     logo: <img src={imgConstrusolLogo} alt="Construsol" className="w-full" />,
