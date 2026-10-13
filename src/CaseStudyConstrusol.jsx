@@ -49,7 +49,14 @@ const PANELS = [
     key: 'bags',
     node: (
       <div className="flex size-full items-center justify-center bg-[#b55600]">
-        <img src={imgBags} alt="Construsol branded shopping bags" className="max-h-[80%] max-w-[82%] object-contain" />
+        {/* Figma crops the image slightly past its frame to hide its thin white border */}
+        <div className="relative aspect-[1230/563] overflow-hidden" style={{ width: `min(82vw, ${80 * (1230 / 563)}vh)` }}>
+          <img
+            src={imgBags}
+            alt="Construsol brand presentation slide"
+            className="absolute left-[-0.57%] top-[-1.44%] h-[102.71%] w-[101.14%] max-w-none"
+          />
+        </div>
       </div>
     ),
   },
