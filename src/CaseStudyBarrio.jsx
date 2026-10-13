@@ -1,6 +1,6 @@
 import CaseStudyShell, { Meta } from './CaseStudyShell';
 import Reveal from './Reveal';
-import StackPanel from './StackPanel';
+import { PanelStack } from './StackPanel';
 import imgHero from './assets/figma/barrio-hero.jpg';
 import imgPhoneMockup from './assets/figma/barrio-phone-mockup.jpg';
 import imgCampaign1 from './assets/figma/barrio-campaign-1.jpg';
@@ -79,13 +79,7 @@ export default function CaseStudyBarrio() {
       </Reveal>
 
       {/* Gallery — each image pins full-screen, then the next one slides up over it */}
-      <div className="relative">
-        {PANELS.map((panel, i) => (
-          <StackPanel key={panel.key} index={i} first={i === 0}>
-            {panel.node}
-          </StackPanel>
-        ))}
-      </div>
+      <PanelStack panels={PANELS} />
     </CaseStudyShell>
   );
 }

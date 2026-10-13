@@ -1,6 +1,6 @@
 import CaseStudyShell, { Meta } from './CaseStudyShell';
 import Reveal from './Reveal';
-import StackPanel from './StackPanel';
+import { PanelStack } from './StackPanel';
 import imgHero from './assets/figma/vd-construsol-bg.jpg';
 import imgLogo from './assets/figma/vd-construsol-logo.svg';
 import imgLogoSmall from './assets/figma/construsol-logo-small.svg';
@@ -12,11 +12,13 @@ import imgBox from './assets/figma/construsol-box.jpg';
 import imgTote from './assets/figma/construsol-tote.jpg';
 import imgTablet from './assets/figma/construsol-tablet.jpg';
 import imgVest from './assets/figma/construsol-vest.jpg';
+import imgTshirtLogo from './assets/figma/construsol-tshirt-logo.jpg';
 import imgBrochure from './assets/figma/construsol-brochure.jpg';
 
 const META = [
   { label: 'ROLE', value: 'Visual Designer' },
-  { label: 'SKILLS', value: ['Branding', 'Social Media', 'Packaging', 'Merchandising'] },
+  { label: 'YEAR', value: '2025' },
+  { label: 'SKILLS', value: ['Social Media', 'Banners', 'Books', 'Notebooks', 'Corporate Merchandising', 'Paid Ads'] },
 ];
 
 // The hero photo is a zoomed crop in Figma (same as the Visual Designer
@@ -73,8 +75,9 @@ const PANELS = [
   {
     key: 'vest',
     node: (
-      <div className="grid size-full sm:grid-cols-[787fr_653fr]">
+      <div className="grid size-full grid-rows-2 sm:grid-cols-2 sm:grid-rows-1">
         <img src={imgVest} alt="Construsol branded safety vest and hard hat" className="size-full object-cover" />
+        <img src={imgTshirtLogo} alt="Construsol logo on a white t-shirt" className="size-full object-cover" />
       </div>
     ),
   },
@@ -104,13 +107,7 @@ export default function CaseStudyConstrusol() {
       </Reveal>
 
       {/* Gallery — each image pins full-screen, then the next one slides up over it */}
-      <div className="relative">
-        {PANELS.map((panel, i) => (
-          <StackPanel key={panel.key} index={i} first={i === 0}>
-            {panel.node}
-          </StackPanel>
-        ))}
-      </div>
+      <PanelStack panels={PANELS} />
     </CaseStudyShell>
   );
 }

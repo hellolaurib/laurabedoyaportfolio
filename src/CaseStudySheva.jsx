@@ -1,6 +1,6 @@
 import CaseStudyShell, { Meta } from './CaseStudyShell';
 import Reveal from './Reveal';
-import StackPanel from './StackPanel';
+import { PanelStack } from './StackPanel';
 import ShevaWebMockup from './ShevaWebMockup';
 import imgHero from './assets/figma/sheva-hero.jpg';
 import imgLogo from './assets/figma/vd-sheva-logo.svg';
@@ -130,18 +130,6 @@ const PANELS_AFTER_WEB = [
   },
   { key: 'signage', node: <img src={imgSignage} alt="Sheva storefront signage" className="size-full object-cover" /> },
 ];
-
-function PanelStack({ panels }) {
-  return (
-    <div className="relative">
-      {panels.map((panel, i) => (
-        <StackPanel key={panel.key} index={i} first={i === 0}>
-          {panel.node}
-        </StackPanel>
-      ))}
-    </div>
-  );
-}
 
 export default function CaseStudySheva() {
   return (

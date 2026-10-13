@@ -15,3 +15,16 @@ export default function StackPanel({ children, index, first = false }) {
     </div>
   );
 }
+
+// A gallery of StackPanels, one per { key, node } entry.
+export function PanelStack({ panels }) {
+  return (
+    <div className="relative">
+      {panels.map((panel, i) => (
+        <StackPanel key={panel.key} index={i} first={i === 0}>
+          {panel.node}
+        </StackPanel>
+      ))}
+    </div>
+  );
+}
